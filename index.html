@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Librería Académica - LECTUM</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- GOOGLE LOGIN -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+    <div class="logo">LECTUM</div>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#books">Libros</a>
+        <a href="#about">Nosotros</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <div id="login-area"></div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Libros que transforman ideas</h1>
+        <p>Conocimiento académico para estudiantes y profesionales.</p>
+        <a href="#books" class="btn">Explorar Libros</a>
+    </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section class="about" id="about">
+    <h4>SOBRE NOSOTROS</h4>
+    <h2>Especialistas en libros académicos</h2>
+    <p>
+        Ofrecemos una colección moderna de libros universitarios,
+        escolares y profesionales para impulsar el aprendizaje.
+    </p>
+</section>
+
+<!-- LIBROS -->
+<section class="books" id="books">
+
+    <h4>NUESTRA BIBLIOTECA</h4>
+    <h2>Libros destacados</h2>
+
+    <!-- NUEVO APARTADO YAPE -->
+    <div class="payment-box">
+
+        <img src="pago con yape/yape.png.PNG" alt="Pago con Yape" class="yape-img">
+
+        <div class="payment-text">
+            <h3>Pago rápido con Yape</h3>
+            <p>Para comprar cualquier libro yapea <strong>S/. 2.00</strong> a este número.</p>
+        </div>
+
+    </div>
+
+    <!-- CARRUSEL -->
+    <div class="carousel-container">
+
+        <button class="nav prev">&#10094;</button>
+
+        <div class="carousel-view">
+
+            <div class="carousel-track" id="track">
+
+                <div class="book-card">
+                    <img src="https://picsum.photos/220/320?1" alt="Psicología Moderna">
+                    <h3>Psicología Moderna</h3>
+                    <span>S/ 75</span>
+                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
+                </div>
+
+                <div class="book-card">
+                    <img src="https://picsum.photos/220/320?2" alt="Economía Global">
+                    <h3>Economía Global</h3>
+                    <span>S/ 82</span>
+                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
+                </div>
+
+                <div class="book-card">
+                    <img src="https://picsum.photos/220/320?3" alt="Investigación Científica">
+                    <h3>Investigación Científica</h3>
+                    <span>S/ 95</span>
+                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
+                </div>
+
+                <div class="book-card">
+                    <img src="https://picsum.photos/220/320?4" alt="Ingeniería Aplicada">
+                    <h3>Ingeniería Aplicada</h3>
+                    <span>S/ 89</span>
+                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
+                </div>
+
+                <div class="book-card">
+                    <img src="https://picsum.photos/220/320?5" alt="Historia Universal">
+                    <h3>Historia Universal</h3>
+                    <span>S/ 70</span>
+                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
+                </div>
+
+                <div class="book-card">
+                    <img src="https://picsum.photos/220/320?6" alt="Matemática Superior">
+                    <h3>Matemática Superior</h3>
+                    <span>S/ 99</span>
+                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="nav next">&#10095;</button>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 Librería Académica</p>
+</footer>
+
+<!-- SCRIPT LOGIN GOOGLE -->
+<script>
+function handleCredentialResponse(response){
+    localStorage.setItem("google_session", response.credential);
+    location.href = "index.html";
+}
+
+function cerrarSesion(){
+    localStorage.removeItem("google_session");
+    location.reload();
+}
+
+function mostrarSesionActiva(){
+    document.getElementById("login-area").innerHTML = `
+        <div class="session-box">
+            <span>Sesión iniciada</span>
+            <button onclick="cerrarSesion()" class="logout-btn">Salir</button>
+        </div>
+    `;
+}
+
+window.onload = function(){
+
+    if(localStorage.getItem("google_session")){
+        mostrarSesionActiva();
+    }else{
+
+        google.accounts.id.initialize({
+            client_id: "TU_CLIENT_ID.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+        });
+
+        google.accounts.id.renderButton(
+            document.getElementById("login-area"),
+            {
+                theme:"outline",
+                size:"medium",
+                text:"signin_with",
+                shape:"pill"
+            }
+        );
+    }
+}
+</script>
+
+<!-- SCRIPT CARRUSEL -->
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const track = document.getElementById("track");
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+
+    let posicion = 0;
+
+    function mover(direccion){
+
+        const card = document.querySelector(".book-card");
+        const ancho = card.offsetWidth + 30;
+
+        posicion += direccion * ancho;
+
+        const maximo =
+        track.scrollWidth -
+        document.querySelector(".carousel-view").offsetWidth;
+
+        if(posicion < 0) posicion = 0;
+        if(posicion > maximo) posicion = maximo;
+
+        track.style.transform = `translateX(-${posicion}px)`;
+    }
+
+    next.addEventListener("click", function(){
+        mover(1);
+    });
+
+    prev.addEventListener("click", function(){
+        mover(-1);
+    });
+
+});
+</script>
+
+</body>
+</html>
