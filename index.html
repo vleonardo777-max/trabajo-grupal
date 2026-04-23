@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Librería Académica - LECTUM</title>
+    
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
     <link rel="stylesheet" href="style.css">
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -91,7 +94,6 @@
 
 <script>
 function handleCredentialResponse(response) {
-    // Guardamos el token en el navegador para que la sesión persista
     localStorage.setItem("google_session", response.credential);
     console.log("Sesión iniciada correctamente");
     location.reload();
@@ -105,8 +107,8 @@ function cerrarSesion() {
 function mostrarSesionActiva() {
     document.getElementById("login-area").innerHTML = `
         <div class="session-box">
-            <span style="margin-right:10px; font-size:14px;">Sesión iniciada</span>
-            <button onclick="cerrarSesion()" class="logout-btn" style="cursor:pointer;">Salir</button>
+            <span style="margin-right:10px; font-size:14px; color: #333;">Sesión iniciada</span>
+            <button onclick="cerrarSesion()" class="logout-btn" style="cursor:pointer; background:#ff4b4b; color:white; border:none; padding:5px 10px; border-radius:5px;">Salir</button>
         </div>
     `;
 }
@@ -115,13 +117,11 @@ window.onload = function () {
     if (localStorage.getItem("google_session")) {
         mostrarSesionActiva();
     } else {
-        // Inicialización con TU ID real de Google Cloud
         google.accounts.id.initialize({
             client_id: "406323672638-hki7o8576utok1gd043l3jni5vhrcsdo.apps.googleusercontent.com",
             callback: handleCredentialResponse
         });
 
-        // Renderizado del botón oficial
         google.accounts.id.renderButton(
             document.getElementById("login-area"),
             {
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function mover(direccion) {
         const card = document.querySelector(".book-card");
         if(!card) return;
-        const ancho = card.offsetWidth + 30;
+        const ancho = card.offsetWidth + 30; // 30 es el gap/margen
         posicion += direccion * ancho;
 
         const maximo = track.scrollWidth - view.offsetWidth;
