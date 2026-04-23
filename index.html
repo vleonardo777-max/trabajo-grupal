@@ -9,6 +9,7 @@
 <!-- GOOGLE LOGIN -->
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
+
 <body>
 
 <!-- HEADER -->
@@ -20,7 +21,7 @@
         <a href="#">Inicio</a>
         <a href="#books">Libros</a>
         <a href="#about">Nosotros</a>
-        <a href="#">Contacto</a>
+        <a href="#footer">Contacto</a>
     </nav>
 
     <div id="login-area"></div>
@@ -52,14 +53,14 @@
     <h4>NUESTRA BIBLIOTECA</h4>
     <h2>Libros destacados</h2>
 
-    <!-- NUEVO APARTADO YAPE -->
+    <!-- PAGO YAPE -->
     <div class="payment-box">
 
         <img src="pago con yape/yape.png.PNG" alt="Pago con Yape" class="yape-img">
 
         <div class="payment-text">
             <h3>Pago rápido con Yape</h3>
-            <p>Para comprar cualquier libro yapea <strong>S/. 2.00</strong> a este número.</p>
+            <p>Para comprar cualquier libro yapea <strong>S/. 2.00</strong>.</p>
         </div>
 
     </div>
@@ -122,26 +123,27 @@
         <button class="nav next">&#10095;</button>
 
     </div>
+
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-    <p>© 2026 Librería Académica</p>
+<footer class="footer" id="footer">
+    <p>© 2026 Librería Académica - LECTUM</p>
 </footer>
 
-<!-- SCRIPT LOGIN GOOGLE -->
+<!-- LOGIN GOOGLE -->
 <script>
-function handleCredentialResponse(response){
+function handleCredentialResponse(response) {
     localStorage.setItem("google_session", response.credential);
-    location.href = "index.html";
+    location.reload();
 }
 
-function cerrarSesion(){
+function cerrarSesion() {
     localStorage.removeItem("google_session");
     location.reload();
 }
 
-function mostrarSesionActiva(){
+function mostrarSesionActiva() {
     document.getElementById("login-area").innerHTML = `
         <div class="session-box">
             <span>Sesión iniciada</span>
@@ -150,11 +152,11 @@ function mostrarSesionActiva(){
     `;
 }
 
-window.onload = function(){
+window.onload = function () {
 
-    if(localStorage.getItem("google_session")){
+    if (localStorage.getItem("google_session")) {
         mostrarSesionActiva();
-    }else{
+    } else {
 
         google.accounts.id.initialize({
             client_id: "TU_CLIENT_ID.apps.googleusercontent.com",
@@ -164,48 +166,47 @@ window.onload = function(){
         google.accounts.id.renderButton(
             document.getElementById("login-area"),
             {
-                theme:"outline",
-                size:"medium",
-                text:"signin_with",
-                shape:"pill"
+                theme: "outline",
+                size: "medium",
+                text: "signin_with",
+                shape: "pill"
             }
         );
     }
-}
+};
 </script>
 
-<!-- SCRIPT CARRUSEL -->
+<!-- CARRUSEL -->
 <script>
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
 
     const track = document.getElementById("track");
     const prev = document.querySelector(".prev");
     const next = document.querySelector(".next");
+    const view = document.querySelector(".carousel-view");
 
     let posicion = 0;
 
-    function mover(direccion){
+    function mover(direccion) {
 
         const card = document.querySelector(".book-card");
         const ancho = card.offsetWidth + 30;
 
         posicion += direccion * ancho;
 
-        const maximo =
-        track.scrollWidth -
-        document.querySelector(".carousel-view").offsetWidth;
+        const maximo = track.scrollWidth - view.offsetWidth;
 
-        if(posicion < 0) posicion = 0;
-        if(posicion > maximo) posicion = maximo;
+        if (posicion < 0) posicion = 0;
+        if (posicion > maximo) posicion = maximo;
 
         track.style.transform = `translateX(-${posicion}px)`;
     }
 
-    next.addEventListener("click", function(){
+    next.addEventListener("click", function () {
         mover(1);
     });
 
-    prev.addEventListener("click", function(){
+    prev.addEventListener("click", function () {
         mover(-1);
     });
 
