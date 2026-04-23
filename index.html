@@ -1,34 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Librería Académica - LECTUM</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería Académica - LECTUM</title>
+    <link rel="stylesheet" href="style.css">
 
-<!-- GOOGLE LOGIN -->
-<script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="header">
-
     <div class="logo">LECTUM</div>
-
     <nav>
         <a href="#">Inicio</a>
         <a href="#books">Libros</a>
         <a href="#about">Nosotros</a>
         <a href="#footer">Contacto</a>
     </nav>
-
     <div id="login-area"></div>
-
 </header>
 
-<!-- HERO -->
 <section class="hero">
     <div class="hero-content">
         <h1>Libros que transforman ideas</h1>
@@ -37,7 +30,6 @@
     </div>
 </section>
 
-<!-- SOBRE NOSOTROS -->
 <section class="about" id="about">
     <h4>SOBRE NOSOTROS</h4>
     <h2>Especialistas en libros académicos</h2>
@@ -47,94 +39,61 @@
     </p>
 </section>
 
-<!-- LIBROS -->
 <section class="books" id="books">
-
     <h4>NUESTRA BIBLIOTECA</h4>
     <h2>Libros destacados</h2>
 
-    <!-- PAGO YAPE -->
     <div class="payment-box">
-
         <img src="pago con yape/yape.png.PNG" alt="Pago con Yape" class="yape-img">
-
         <div class="payment-text">
             <h3>Pago rápido con Yape</h3>
             <p>Para comprar cualquier libro yapea <strong>S/. 2.00</strong>.</p>
         </div>
-
     </div>
 
-    <!-- CARRUSEL -->
     <div class="carousel-container">
-
         <button class="nav prev">&#10094;</button>
-
         <div class="carousel-view">
-
             <div class="carousel-track" id="track">
-
                 <div class="book-card">
                     <img src="https://picsum.photos/220/320?1" alt="Psicología Moderna">
                     <h3>Psicología Moderna</h3>
                     <span>S/ 75</span>
                     <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
                 </div>
-
                 <div class="book-card">
                     <img src="https://picsum.photos/220/320?2" alt="Economía Global">
                     <h3>Economía Global</h3>
                     <span>S/ 82</span>
                     <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
                 </div>
-
                 <div class="book-card">
                     <img src="https://picsum.photos/220/320?3" alt="Investigación Científica">
                     <h3>Investigación Científica</h3>
                     <span>S/ 95</span>
                     <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
                 </div>
-
                 <div class="book-card">
                     <img src="https://picsum.photos/220/320?4" alt="Ingeniería Aplicada">
                     <h3>Ingeniería Aplicada</h3>
                     <span>S/ 89</span>
                     <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
                 </div>
-
-                <div class="book-card">
-                    <img src="https://picsum.photos/220/320?5" alt="Historia Universal">
-                    <h3>Historia Universal</h3>
-                    <span>S/ 70</span>
-                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
-                </div>
-
-                <div class="book-card">
-                    <img src="https://picsum.photos/220/320?6" alt="Matemática Superior">
-                    <h3>Matemática Superior</h3>
-                    <span>S/ 99</span>
-                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
-                </div>
-
             </div>
-
         </div>
-
         <button class="nav next">&#10095;</button>
-
     </div>
-
 </section>
 
-<!-- FOOTER -->
 <footer class="footer" id="footer">
     <p>© 2026 Librería Académica - LECTUM</p>
 </footer>
 
-<!-- LOGIN GOOGLE -->
 <script>
 function handleCredentialResponse(response) {
+    // Guardamos el token en el navegador para que la sesión persista
     localStorage.setItem("google_session", response.credential);
+    console.log("Sesión iniciada correctamente");
     location.reload();
 }
 
@@ -146,23 +105,23 @@ function cerrarSesion() {
 function mostrarSesionActiva() {
     document.getElementById("login-area").innerHTML = `
         <div class="session-box">
-            <span>Sesión iniciada</span>
-            <button onclick="cerrarSesion()" class="logout-btn">Salir</button>
+            <span style="margin-right:10px; font-size:14px;">Sesión iniciada</span>
+            <button onclick="cerrarSesion()" class="logout-btn" style="cursor:pointer;">Salir</button>
         </div>
     `;
 }
 
 window.onload = function () {
-
     if (localStorage.getItem("google_session")) {
         mostrarSesionActiva();
     } else {
-
+        // Inicialización con TU ID real de Google Cloud
         google.accounts.id.initialize({
-            client_id: "TU_CLIENT_ID.apps.googleusercontent.com",
+            client_id: "406323672638-hki7o8576utok1gd043l3jni5vhrcsdo.apps.googleusercontent.com",
             callback: handleCredentialResponse
         });
 
+        // Renderizado del botón oficial
         google.accounts.id.renderButton(
             document.getElementById("login-area"),
             {
@@ -176,10 +135,8 @@ window.onload = function () {
 };
 </script>
 
-<!-- CARRUSEL -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
     const track = document.getElementById("track");
     const prev = document.querySelector(".prev");
     const next = document.querySelector(".next");
@@ -188,10 +145,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let posicion = 0;
 
     function mover(direccion) {
-
         const card = document.querySelector(".book-card");
+        if(!card) return;
         const ancho = card.offsetWidth + 30;
-
         posicion += direccion * ancho;
 
         const maximo = track.scrollWidth - view.offsetWidth;
@@ -202,14 +158,8 @@ document.addEventListener("DOMContentLoaded", function () {
         track.style.transform = `translateX(-${posicion}px)`;
     }
 
-    next.addEventListener("click", function () {
-        mover(1);
-    });
-
-    prev.addEventListener("click", function () {
-        mover(-1);
-    });
-
+    next.addEventListener("click", () => mover(1));
+    prev.addEventListener("click", () => mover(-1));
 });
 </script>
 
