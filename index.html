@@ -3,99 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Librería Académica - LECTUM</title>
+    <title>Lectum - Tu próximo libro al mejor precio</title>
+    
+    <link rel="icon" type="image/png" href="pago con yape/2.png">
     
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    
     <link rel="stylesheet" href="style.css">
-
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
 
 <header class="header">
-    <div class="logo">LECTUM</div>
+    <div class="logo">
+        <img src="pago con yape/2.png" alt="Lectum Logo">
+    </div>
     <nav>
         <a href="#">Inicio</a>
-        <a href="#books">Libros</a>
-        <a href="#about">Nosotros</a>
-        <a href="#footer">Contacto</a>
+        <a href="#about">Categorías</a>
+        <a href="#contact">Atención</a>
     </nav>
-    <div id="login-area"></div>
+    <div class="auth-container">
+        <div id="login-area"></div>
+    </div>
 </header>
 
 <section class="hero">
     <div class="hero-content">
-        <h1>Libros que transforman ideas</h1>
-        <p>Conocimiento académico para estudiantes y profesionales.</p>
-        <a href="#books" class="btn">Explorar Libros</a>
+        <h1 class="hero-title">TU PRÓXIMO LIBRO <br> AL MEJOR PRECIO</h1>
+        <p class="hero-subtitle">"Textos académicos especializados. Explora nuestro catálogo y potencia tu aprendizaje por el precio de un pasaje."</p>
     </div>
 </section>
 
 <section class="about" id="about">
-    <h4>SOBRE NOSOTROS</h4>
-    <h2>Especialistas en libros académicos</h2>
-    <p>
-        Ofrecemos una colección moderna de libros universitarios,
-        escolares y profesionales para impulsar el aprendizaje.
-    </p>
+    <div class="container">
+        <h2 class="section-title">“Sobre Nosotros”</h2>
+        <p class="about-text">
+            "En Lectum, convertimos la dificultad en accesibilidad. Somos un equipo apasionado por la formación académica, creando un puente entre el conocimiento y quienes más lo necesitan."
+        </p>
+        
+        <div class="philosophy">
+            <h3 class="philosophy-title">Nuestra filosofía:</h3>
+            <ul class="philosophy-list">
+                <li><strong>Accesible:</strong> Precio justo para bolsillos estudiantiles.</li>
+                <li><strong>Variedad:</strong> De ciencias básicas a literatura especializada.</li>
+                <li><strong>Calidad:</strong> Contenido curado para tu éxito profesional.</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
-<section class="books" id="books">
-    <h4>NUESTRA BIBLIOTECA</h4>
-    <h2>Libros destacados</h2>
+<section class="catalog" id="catalog">
+    <div class="categories-tags">
+        <span class="tag active" onclick="filtrarLibros('all', this)">Ingeniería y Ciencias</span>
+        <span class="tag" onclick="filtrarLibros('lector', this)">Plan Lector</span>
+        <span class="tag" onclick="filtrarLibros('salud', this)">Ciencias de la Salud</span>
+        <span class="tag" onclick="filtrarLibros('personal', this)">Desarrollo Personal</span>
+        <span class="tag" onclick="filtrarLibros('novedades', this)">Novedades</span>
+    </div>
 
-    <div class="payment-box">
-        <img src="pago con yape/yape.png.PNG" alt="Pago con Yape" class="yape-img">
-        <div class="payment-text">
-            <h3>Pago rápido con Yape</h3>
-            <p>Para comprar cualquier libro yapea <strong>S/. 2.00</strong>.</p>
+    <div class="search-bar-container">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Buscar..." id="search-input" onkeyup="buscarLibro()">
+            <span class="clear-icon" onclick="limpiarBusqueda()">×</span>
         </div>
     </div>
 
-    <div class="carousel-container">
-        <button class="nav prev">&#10094;</button>
-        <div class="carousel-view">
-            <div class="carousel-track" id="track">
-                <div class="book-card">
-                    <img src="https://picsum.photos/220/320?1" alt="Psicología Moderna">
-                    <h3>Psicología Moderna</h3>
-                    <span>S/ 75</span>
-                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
-                </div>
-                <div class="book-card">
-                    <img src="https://picsum.photos/220/320?2" alt="Economía Global">
-                    <h3>Economía Global</h3>
-                    <span>S/ 82</span>
-                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
-                </div>
-                <div class="book-card">
-                    <img src="https://picsum.photos/220/320?3" alt="Investigación Científica">
-                    <h3>Investigación Científica</h3>
-                    <span>S/ 95</span>
-                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
-                </div>
-                <div class="book-card">
-                    <img src="https://picsum.photos/220/320?4" alt="Ingeniería Aplicada">
-                    <h3>Ingeniería Aplicada</h3>
-                    <span>S/ 89</span>
-                    <a href="https://forms.gle/3HVx3ugPqrBRGynA8" target="_blank" class="buy-btn">Obtener</a>
-                </div>
+    <div class="books-grid" id="books-grid">
+        <article class="book-item cat-lector">
+            <div class="book-cover">
+                <img src="portada_literatura.jpg" alt="Literatura Compendio">
             </div>
-        </div>
-        <button class="nav next">&#10095;</button>
+            <div class="book-details">
+                <h3>Literatura - Compendio</h3>
+                <p class="author">Autor: Oscar E. Ravines Hernández y Juan F. Ríos Cáceres.</p>
+                <p class="summary">El libro fortalece los conocimientos del estudiante mediante 30 capítulos sobre distintos movimientos y temas literarios, como el clasicismo, el Renacimiento, el medievalismo y el boom latinoamericano...</p>
+                <button class="btn-details" onclick="verDetalles('Literatura Compendio')">Ver detalles</button>
+            </div>
+        </article>
+
+        <article class="book-item cat-ingenieria">
+            <div class="book-cover">
+                <img src="portada_mate.jpg" alt="Razonamiento Matemático">
+            </div>
+            <div class="book-details">
+                <h3>Razonamiento matemático - Compendio</h3>
+                <p class="author">Autor: Jimmy Elvis y Javier Portuguez</p>
+                <p class="summary">Este libro está dirigido a estudiantes que desean mejorar sus habilidades para resolver ejercicios de razonamiento matemático de forma resumida y didáctica.</p>
+                <button class="btn-details" onclick="verDetalles('Razonamiento Matemático')">Ver detalles</button>
+            </div>
+        </article>
+
+        <article class="book-item cat-ingenieria">
+            <div class="book-cover">
+                <div class="book-placeholder-visual"></div>
+            </div>
+            <div class="book-details">
+                <h3>Cálculo de una variable</h3>
+                <p class="author">Autor: James Stewart</p>
+                <p class="summary">El texto de referencia mundial para ingeniería y ciencias. Cubre de forma rigurosa los conceptos de límites, derivadas e integrales.</p>
+                <button class="btn-details" onclick="verDetalles('Cálculo de una variable')">Ver detalles</button>
+            </div>
+        </article>
+
+        <article class="book-item cat-salud" style="display:none;">
+            <div class="book-cover">
+                <div class="book-placeholder-visual"></div>
+            </div>
+            <div class="book-details">
+                <h3>Anatomía Humana</h3>
+                <p class="author">Autor: Michel Latarjet</p>
+                <p class="summary">Compendio clásico y detallado esencial para el estudio de la medicina y ciencias de la salud.</p>
+                <button class="btn-details" onclick="verDetalles('Anatomía Humana')">Ver detalles</button>
+            </div>
+        </article>
     </div>
 </section>
 
-<footer class="footer" id="footer">
-    <p>© 2026 Librería Académica - LECTUM</p>
+<section class="contact-section" id="contact">
+    <div class="contact-card">
+        <p>Contacto: contacto@lectum.pe</p>
+        <p>Cel.: 953405501</p>
+    </div>
+    
+    <div class="schedule-container">
+        <h4>HORARIO DE ATENCION</h4>
+        <div class="schedule-grid">
+            <div class="day-card"><strong>Lunes</strong><br>6:00 am-5:00 pm</div>
+            <div class="day-card"><strong>Martes</strong><br>9:00 am-8:00 pm</div>
+            <div class="day-card"><strong>Miercoles</strong><br>8:00 am-9:00 pm</div>
+            <div class="day-card"><strong>Jueves</strong><br>7:00 am-6:00 pm</div>
+            <div class="day-card"><strong>Viernes</strong><br>6:00 am-9:00 pm</div>
+            <div class="day-card"><strong>Sabado</strong><br>9:00 am-7:00 pm</div>
+        </div>
+    </div>
+    <p class="footer-slogan">"En Lectum creemos que el conocimiento no debería ser un lujo."</p>
+</section>
+
+<footer class="footer-main">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h5>Lectum</h5>
+            <a href="#">Sobre Nosotros</a>
+            <a href="#">Misión</a>
+            <a href="#">Contáctanos</a>
+        </div>
+        <div class="footer-col">
+            <h5>Ayuda y Soporte</h5>
+            <a href="#">¿Cómo comprar?</a>
+            <a href="#">Formulario de pedido</a>
+            <a href="#">Preguntas Frecuentes</a>
+        </div>
+        <div class="footer-col">
+            <h5>Explora</h5>
+            <a href="#">Literatura</a>
+            <a href="#">Textos Académicos</a>
+            <a href="#">Novelas</a>
+        </div>
+        <div class="footer-col">
+            <h5>Legal</h5>
+            <p>Términos y Condiciones: Reglas sobre el uso de los archivos PDF adquiridos.</p>
+            <p>Política de Privacidad: Cómo protegemos tus datos y las de tu pago por Yape.</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Lectum. Todos los derechos reservados.</p>
+        <div class="bottom-links">
+            <span>Sobre Nosotros</span> | <span>Términos y Condiciones</span> | <span>Política de Privacidad</span> | <span>Preguntas Frecuentes</span>
+        </div>
+    </div>
 </footer>
 
 <script>
+// --- LÓGICA DE FILTRADO ---
+function filtrarLibros(categoria, elemento) {
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(t => t.classList.remove('active'));
+    elemento.classList.add('active');
+
+    const libros = document.querySelectorAll('.book-item');
+    libros.forEach(libro => {
+        if (categoria === 'all' || libro.classList.contains('cat-' + categoria)) {
+            libro.style.display = 'flex';
+        } else {
+            libro.style.display = 'none';
+        }
+    });
+}
+
+// --- LÓGICA DE BÚSQUEDA ---
+function buscarLibro() {
+    const input = document.getElementById('search-input').value.toLowerCase();
+    const libros = document.querySelectorAll('.book-item');
+    
+    libros.forEach(libro => {
+        const titulo = libro.querySelector('h3').innerText.toLowerCase();
+        if (titulo.includes(input)) {
+            libro.style.display = 'flex';
+        } else {
+            libro.style.display = 'none';
+        }
+    });
+}
+
+function limpiarBusqueda() {
+    document.getElementById('search-input').value = '';
+    filtrarLibros('all', document.querySelector('.tag'));
+}
+
+// --- PROTECCIÓN DE RUTAS Y SESIÓN ---
+function verDetalles(nombreLibro) {
+    const sesion = localStorage.getItem("google_session");
+    if (sesion) {
+        alert("Cargando detalles de: " + nombreLibro);
+    } else {
+        alert("¡Acceso Restringido! Por favor, inicia sesión con Google para ver la información detallada.");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
 function handleCredentialResponse(response) {
     localStorage.setItem("google_session", response.credential);
-    console.log("Sesión iniciada correctamente");
     location.reload();
 }
 
@@ -107,10 +236,9 @@ function cerrarSesion() {
 function mostrarSesionActiva() {
     document.getElementById("login-area").innerHTML = `
         <div class="session-box">
-            <span style="margin-right:10px; font-size:14px; color: #333;">Sesión iniciada</span>
-            <button onclick="cerrarSesion()" class="logout-btn" style="cursor:pointer; background:#ff4b4b; color:white; border:none; padding:5px 10px; border-radius:5px;">Salir</button>
-        </div>
-    `;
+            <span class="user-label">Sesión activa</span>
+            <button onclick="cerrarSesion()" class="logout-btn">Salir</button>
+        </div>`;
 }
 
 window.onload = function () {
@@ -121,46 +249,12 @@ window.onload = function () {
             client_id: "406323672638-hki7o8576utok1gd043l3jni5vhrcsdo.apps.googleusercontent.com",
             callback: handleCredentialResponse
         });
-
         google.accounts.id.renderButton(
             document.getElementById("login-area"),
-            {
-                theme: "outline",
-                size: "medium",
-                text: "signin_with",
-                shape: "pill"
-            }
+            { theme: "outline", size: "large", text: "signin_with", shape: "pill", width: "220" }
         );
     }
 };
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const track = document.getElementById("track");
-    const prev = document.querySelector(".prev");
-    const next = document.querySelector(".next");
-    const view = document.querySelector(".carousel-view");
-
-    let posicion = 0;
-
-    function mover(direccion) {
-        const card = document.querySelector(".book-card");
-        if(!card) return;
-        const ancho = card.offsetWidth + 30; // 30 es el gap/margen
-        posicion += direccion * ancho;
-
-        const maximo = track.scrollWidth - view.offsetWidth;
-
-        if (posicion < 0) posicion = 0;
-        if (posicion > maximo) posicion = maximo;
-
-        track.style.transform = `translateX(-${posicion}px)`;
-    }
-
-    next.addEventListener("click", () => mover(1));
-    prev.addEventListener("click", () => mover(-1));
-});
 </script>
 
 </body>

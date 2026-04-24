@@ -1,441 +1,294 @@
-/* =========================
-   RESET GENERAL
-========================= */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* =========================================
+   1. CONFIGURACIÓN GLOBAL Y VARIABLES
+   ========================================= */
+:root {
+    --primary-blue: #0084ff;    /* Azul vibrante del título */
+    --dark-blue: #0d47a1;      /* Azul para botones activos */
+    --light-blue: #bbdefb;     /* Azul claro para horarios */
+    --bg-contact: #90caf9;     /* Fondo sección contacto */
+    --tag-blue: #2196f3;       /* Azul de etiquetas */
+    --gray-divider: #555555;   /* Franjas de 30px */
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f4f1;
-    color:#222;
-    line-height:1.6;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', Arial, sans-serif;
 }
 
-/* =========================
-   HEADER
-========================= */
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
-    padding:20px 60px;
-    background:#ffffff;
-    border-bottom:1px solid #ddd;
+body {
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#1f2c70;
-    letter-spacing:2px;
+/* =========================================
+   2. HEADER Y NAVEGACIÓN
+   ========================================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav{
-    display:flex;
-    gap:20px;
-    align-items:center;
+.logo img {
+    height: 45px;
+    width: auto;
 }
 
-nav a{
-    text-decoration:none;
-    color:#333;
-    font-weight:600;
-    transition:0.3s;
+.header nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+    font-size: 14px;
+    background: #f0f4f8; /* Estilo de botón redondeado grisáceo */
+    padding: 6px 18px;
+    border-radius: 20px;
+    transition: background 0.3s;
 }
 
-nav a:hover{
-    color:#1f2c70;
+/* Auth Container */
+.auth-container {
+    min-width: 220px;
+    display: flex;
+    justify-content: flex-end;
 }
 
-/* =========================
-   LOGIN GOOGLE
-========================= */
-#login-area{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:42px;
+.session-box {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 5px 15px;
+    border-radius: 50px;
+    border: 1px solid #ddd;
 }
 
-.session-box{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:#eef1ff;
-    border:1px solid #ccd3ff;
-    padding:8px 12px;
-    border-radius:30px;
+.logout-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 11px;
+    margin-left: 10px;
 }
 
-.session-box span{
-    font-size:14px;
-    font-weight:600;
-    color:#1f2c70;
+/* =========================================
+   3. SECCIÓN HERO
+   ========================================= */
+.hero {
+    padding: 80px 5% 60px;
+    text-align: center;
 }
 
-.logout-btn{
-    border:none;
-    background:#1f2c70;
-    color:#fff;
-    padding:8px 14px;
-    border-radius:20px;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
+.hero-title {
+    color: var(--primary-blue);
+    font-size: 80px; /* Tamaño masivo según diseño */
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
 }
 
-.logout-btn:hover{
-    background:#162050;
+.hero-subtitle {
+    font-size: 16px;
+    max-width: 650px;
+    margin: 0 auto;
+    font-weight: bold;
+    color: #333;
+    border: 1px solid #333; /* Recuadro del subtítulo */
+    padding: 15px;
 }
 
-/* =========================
-   HERO
-========================= */
-.hero{
-    padding:90px 60px;
+/* =========================================
+   4. BLOQUES DE SECCIÓN (FRANJAS GRISES)
+   ========================================= */
+.about, .catalog {
+    border-top: 30px solid var(--gray-divider); /* Franja divisoria */
+    padding: 60px 10%;
 }
 
-.hero h1{
-    font-size:64px;
-    color:#1f2c70;
-    max-width:700px;
-    margin-bottom:20px;
+/* =========================================
+   5. SOBRE NOSOTROS
+   ========================================= */
+.section-title {
+    color: #2c569e;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
 }
 
-.hero p{
-    font-size:22px;
-    color:#555;
-    margin-bottom:30px;
-    max-width:700px;
+.philosophy-title {
+    color: #2c569e;
+    text-decoration: underline;
+    text-align: center;
+    margin: 30px 0 15px;
 }
 
-.btn{
-    display:inline-block;
-    padding:14px 28px;
-    background:#1f2c70;
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:5px;
-    transition:0.3s;
+.philosophy-list {
+    list-style: none;
+    text-align: center;
 }
 
-.btn:hover{
-    background:#162050;
+/* =========================================
+   6. CATÁLOGO Y FILTRADO
+   ========================================= */
+.categories-tags {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
 }
 
-/* =========================
-   ABOUT
-========================= */
-.about{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-    padding:80px 20px;
+.tag {
+    background: var(--tag-blue);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.about h4,
-.books h4{
-    color:#1f2c70;
-    font-size:14px;
-    letter-spacing:3px;
-    margin-bottom:15px;
+.tag.active {
+    background: var(--dark-blue);
 }
 
-.about h2,
-.books h2{
-    font-size:42px;
-    color:#1f2c70;
-    margin-bottom:20px;
+/* Buscador */
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
-.about p{
-    font-size:20px;
-    color:#555;
+.search-box {
+    border: 1.5px solid #333;
+    border-radius: 8px;
+    padding: 8px 15px;
+    width: 350px;
+    display: flex;
+    align-items: center;
 }
 
-/* =========================
-   BOOKS
-========================= */
-.books{
-    padding:80px 40px;
-    text-align:center;
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-left: 10px;
 }
 
-/* =========================
-   BLOQUE YAPE
-========================= */
-.payment-box{
-    max-width:1000px;
-    margin:35px auto 55px;
-    padding:25px;
-    background:#ffffff;
-    border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:35px;
-    flex-wrap:wrap;
+/* Grid de Libros */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
 }
 
-.yape-img{
-    width:260px;
-    max-width:100%;
-    border-radius:14px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.10);
+.book-item {
+    display: flex;
+    gap: 25px;
 }
 
-.payment-text{
-    max-width:420px;
-    text-align:left;
+.book-cover img {
+    width: 190px;
+    height: 270px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.payment-text h3{
-    font-size:32px;
-    color:#1f2c70;
-    margin-bottom:15px;
+.book-details h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
 }
 
-.payment-text p{
-    font-size:20px;
-    color:#444;
-    margin-bottom:10px;
+.btn-details {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.payment-text strong{
-    color:#7a00b8;
+/* =========================================
+   7. CONTACTO Y HORARIOS
+   ========================================= */
+.contact-section {
+    background: var(--bg-contact); /* Fondo azul cielo */
+    text-align: center;
+    padding: 60px 10%;
 }
 
-.payment-text span{
-    display:inline-block;
-    margin-top:8px;
-    padding:10px 18px;
-    background:#f1ebff;
-    color:#7a00b8;
-    border-radius:30px;
-    font-weight:bold;
-    font-size:20px;
+.contact-card {
+    background: #42a5f5;
+    border: 2.5px solid #1e88e5;
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 
-/* =========================
-   CARRUSEL
-========================= */
-.carousel-container{
-    position:relative;
-    max-width:1200px;
-    margin:auto;
-    margin-top:20px;
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    max-width: 1000px;
+    margin: 20px auto;
 }
 
-.carousel-view{
-    overflow:hidden;
-    width:100%;
+.day-card {
+    background: var(--light-blue);
+    padding: 18px 10px;
+    border-radius: 12px;
+    color: #0d47a1;
+    font-size: 12px;
 }
 
-.carousel-track{
-    display:flex;
-    gap:30px;
-    transition:transform 0.5s ease;
+/* =========================================
+   8. FOOTER
+   ========================================= */
+.footer-main {
+    padding: 50px 8% 30px;
+    background: #fff;
 }
 
-/* =========================
-   BOOK CARD
-========================= */
-.book-card{
-    min-width:250px;
-    background:#ffffff;
-    padding:18px;
-    border-radius:8px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.08);
-    flex-shrink:0;
-    text-align:center;
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    border-top: 1px solid #ccc;
+    padding-top: 30px;
 }
 
-.book-card img{
-    width:100%;
-    height:320px;
-    object-fit:cover;
-    border-radius:6px;
-    margin-bottom:15px;
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #777;
 }
 
-.book-card h3{
-    color:#1f2c70;
-    font-size:22px;
-    margin-bottom:10px;
-}
-
-.book-card span{
-    display:block;
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:15px;
-}
-
-/* =========================
-   BOTON COMPRAR
-========================= */
-.buy-btn{
-    display:block;
-    width:100%;
-    padding:12px;
-    background:#1f2c70;
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:5px;
-    transition:0.3s;
-    text-align:center;
-}
-
-.buy-btn:hover{
-    background:#162050;
-    transform:translateY(-2px);
-}
-
-/* =========================
-   FLECHAS CARRUSEL
-========================= */
-.nav{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
-    background:#1f2c70;
-    color:#fff;
-    font-size:28px;
-    cursor:pointer;
-    z-index:10;
-    transition:0.3s;
-}
-
-.nav:hover{
-    background:#162050;
-}
-
-.prev{
-    left:-25px;
-}
-
-.next{
-    right:-25px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-.footer{
-    margin-top:70px;
-    background:#111;
-    color:#fff;
-    text-align:center;
-    padding:35px;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media(max-width:900px){
-
-    .header{
-        flex-direction:column;
-        text-align:center;
-        padding:20px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .hero{
-        padding:60px 25px;
-        text-align:center;
-    }
-
-    .hero h1{
-        font-size:48px;
-        max-width:100%;
-    }
-
-    .hero p{
-        font-size:18px;
-        max-width:100%;
-    }
-
-    .about h2,
-    .books h2{
-        font-size:34px;
-    }
-
-    .payment-box{
-        flex-direction:column;
-        text-align:center;
-        gap:20px;
-    }
-
-    .payment-text{
-        text-align:center;
-    }
-
-    .payment-text h3{
-        font-size:28px;
-    }
-
-    .payment-text p{
-        font-size:18px;
-    }
-
-    .prev{
-        left:5px;
-    }
-
-    .next{
-        right:5px;
-    }
-}
-
-@media(max-width:600px){
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .book-card{
-        min-width:220px;
-    }
-
-    .session-box{
-        flex-direction:column;
-        border-radius:12px;
-    }
-
-    .books{
-        padding:60px 20px;
-    }
-
-    .yape-img{
-        width:220px;
-    }
-
-    .payment-text h3{
-        font-size:24px;
-    }
-
-    .payment-text p{
-        font-size:16px;
-    }
-
-    .payment-text span{
-        font-size:18px;
-    }
+/* =========================================
+   9. RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    .hero-title { font-size: 45px; }
+    .books-grid { grid-template-columns: 1fr; }
+    .book-item { flex-direction: column; align-items: center; text-align: center; }
 }
