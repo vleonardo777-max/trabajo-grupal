@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lectum - Tu próximo libro al mejor precio</title>
     
-    <link rel="icon" type="image/png" href="pago con yape/2.png">
+    <link rel="icon" type="image/png" href="yape/2.png">
     
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="style.css">
@@ -16,11 +16,11 @@
 
 <header class="header">
     <div class="logo">
-        <img src="pago con yape/2.png" alt="Lectum Logo">
+        <img src="yape/2.png" alt="Lectum Logo">
     </div>
     <nav>
         <a href="#">Inicio</a>
-        <a href="#about">Categorías</a>
+        <a href="#catalog">Categorías</a>
         <a href="#contact">Atención</a>
     </nav>
     <div class="auth-container">
@@ -55,18 +55,18 @@
 
 <section class="catalog" id="catalog">
     <div class="categories-tags">
-        <span class="tag active" onclick="filtrarLibros('all', this)">Ingeniería y Ciencias</span>
+        <span class="tag active" onclick="filtrarLibros('all', this)">Todos</span>
+        <span class="tag" onclick="filtrarLibros('ingenieria', this)">Ingeniería y Ciencias</span>
         <span class="tag" onclick="filtrarLibros('lector', this)">Plan Lector</span>
         <span class="tag" onclick="filtrarLibros('salud', this)">Ciencias de la Salud</span>
         <span class="tag" onclick="filtrarLibros('personal', this)">Desarrollo Personal</span>
-        <span class="tag" onclick="filtrarLibros('novedades', this)">Novedades</span>
     </div>
 
     <div class="search-bar-container">
         <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" placeholder="Buscar..." id="search-input" onkeyup="buscarLibro()">
-            <span class="clear-icon" onclick="limpiarBusqueda()">×</span>
+            <input type="text" placeholder="Buscar libro..." id="search-input" onkeyup="buscarLibro()">
+            <span class="clear-icon" onclick="limpiarBusqueda()" style="cursor:pointer">×</span>
         </div>
     </div>
 
@@ -78,7 +78,7 @@
             <div class="book-details">
                 <h3>Literatura - Compendio</h3>
                 <p class="author">Autor: Oscar E. Ravines Hernández y Juan F. Ríos Cáceres.</p>
-                <p class="summary">El libro fortalece los conocimientos del estudiante mediante 30 capítulos sobre distintos movimientos y temas literarios, como el clasicismo, el Renacimiento, el medievalismo y el boom latinoamericano...</p>
+                <p class="summary">El libro fortalece los conocimientos del estudiante mediante 30 capítulos sobre movimientos literarios...</p>
                 <button class="btn-details" onclick="verDetalles('Literatura Compendio')">Ver detalles</button>
             </div>
         </article>
@@ -88,34 +88,22 @@
                 <img src="portada_mate.jpg" alt="Razonamiento Matemático">
             </div>
             <div class="book-details">
-                <h3>Razonamiento matemático - Compendio</h3>
+                <h3>Razonamiento matemático</h3>
                 <p class="author">Autor: Jimmy Elvis y Javier Portuguez</p>
-                <p class="summary">Este libro está dirigido a estudiantes que desean mejorar sus habilidades para resolver ejercicios de razonamiento matemático de forma resumida y didáctica.</p>
+                <p class="summary">Dirigido a estudiantes que desean mejorar sus habilidades de forma resumida y didáctica.</p>
                 <button class="btn-details" onclick="verDetalles('Razonamiento Matemático')">Ver detalles</button>
             </div>
         </article>
 
         <article class="book-item cat-ingenieria">
             <div class="book-cover">
-                <div class="book-placeholder-visual"></div>
+                <div class="book-placeholder-visual" style="background:#eee; height:270px; width:190px;"></div>
             </div>
             <div class="book-details">
                 <h3>Cálculo de una variable</h3>
                 <p class="author">Autor: James Stewart</p>
-                <p class="summary">El texto de referencia mundial para ingeniería y ciencias. Cubre de forma rigurosa los conceptos de límites, derivadas e integrales.</p>
+                <p class="summary">El texto de referencia mundial para ingeniería y ciencias. Cubre límites, derivadas e integrales.</p>
                 <button class="btn-details" onclick="verDetalles('Cálculo de una variable')">Ver detalles</button>
-            </div>
-        </article>
-
-        <article class="book-item cat-salud" style="display:none;">
-            <div class="book-cover">
-                <div class="book-placeholder-visual"></div>
-            </div>
-            <div class="book-details">
-                <h3>Anatomía Humana</h3>
-                <p class="author">Autor: Michel Latarjet</p>
-                <p class="summary">Compendio clásico y detallado esencial para el estudio de la medicina y ciencias de la salud.</p>
-                <button class="btn-details" onclick="verDetalles('Anatomía Humana')">Ver detalles</button>
             </div>
         </article>
     </div>
@@ -128,14 +116,14 @@
     </div>
     
     <div class="schedule-container">
-        <h4>HORARIO DE ATENCION</h4>
+        <h4>HORARIO DE ATENCIÓN</h4>
         <div class="schedule-grid">
             <div class="day-card"><strong>Lunes</strong><br>6:00 am-5:00 pm</div>
             <div class="day-card"><strong>Martes</strong><br>9:00 am-8:00 pm</div>
-            <div class="day-card"><strong>Miercoles</strong><br>8:00 am-9:00 pm</div>
+            <div class="day-card"><strong>Miércoles</strong><br>8:00 am-9:00 pm</div>
             <div class="day-card"><strong>Jueves</strong><br>7:00 am-6:00 pm</div>
             <div class="day-card"><strong>Viernes</strong><br>6:00 am-9:00 pm</div>
-            <div class="day-card"><strong>Sabado</strong><br>9:00 am-7:00 pm</div>
+            <div class="day-card"><strong>Sábado</strong><br>9:00 am-7:00 pm</div>
         </div>
     </div>
     <p class="footer-slogan">"En Lectum creemos que el conocimiento no debería ser un lujo."</p>
@@ -147,36 +135,24 @@
             <h5>Lectum</h5>
             <a href="#">Sobre Nosotros</a>
             <a href="#">Misión</a>
-            <a href="#">Contáctanos</a>
         </div>
         <div class="footer-col">
-            <h5>Ayuda y Soporte</h5>
+            <h5>Ayuda</h5>
             <a href="#">¿Cómo comprar?</a>
-            <a href="#">Formulario de pedido</a>
             <a href="#">Preguntas Frecuentes</a>
         </div>
         <div class="footer-col">
-            <h5>Explora</h5>
-            <a href="#">Literatura</a>
-            <a href="#">Textos Académicos</a>
-            <a href="#">Novelas</a>
-        </div>
-        <div class="footer-col">
             <h5>Legal</h5>
-            <p>Términos y Condiciones: Reglas sobre el uso de los archivos PDF adquiridos.</p>
-            <p>Política de Privacidad: Cómo protegemos tus datos y las de tu pago por Yape.</p>
+            <p>Términos y Condiciones</p>
+            <p>Política de Privacidad</p>
         </div>
     </div>
     <div class="footer-bottom">
         <p>© 2026 Lectum. Todos los derechos reservados.</p>
-        <div class="bottom-links">
-            <span>Sobre Nosotros</span> | <span>Términos y Condiciones</span> | <span>Política de Privacidad</span> | <span>Preguntas Frecuentes</span>
-        </div>
     </div>
 </footer>
 
 <script>
-// --- LÓGICA DE FILTRADO ---
 function filtrarLibros(categoria, elemento) {
     const tags = document.querySelectorAll('.tag');
     tags.forEach(t => t.classList.remove('active'));
@@ -192,18 +168,13 @@ function filtrarLibros(categoria, elemento) {
     });
 }
 
-// --- LÓGICA DE BÚSQUEDA ---
 function buscarLibro() {
     const input = document.getElementById('search-input').value.toLowerCase();
     const libros = document.querySelectorAll('.book-item');
     
     libros.forEach(libro => {
         const titulo = libro.querySelector('h3').innerText.toLowerCase();
-        if (titulo.includes(input)) {
-            libro.style.display = 'flex';
-        } else {
-            libro.style.display = 'none';
-        }
+        libro.style.display = titulo.includes(input) ? 'flex' : 'none';
     });
 }
 
@@ -212,13 +183,12 @@ function limpiarBusqueda() {
     filtrarLibros('all', document.querySelector('.tag'));
 }
 
-// --- PROTECCIÓN DE RUTAS Y SESIÓN ---
 function verDetalles(nombreLibro) {
     const sesion = localStorage.getItem("google_session");
     if (sesion) {
         alert("Cargando detalles de: " + nombreLibro);
     } else {
-        alert("¡Acceso Restringido! Por favor, inicia sesión con Google para ver la información detallada.");
+        alert("Por favor, inicia sesión con Google para ver más.");
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
@@ -233,17 +203,13 @@ function cerrarSesion() {
     location.reload();
 }
 
-function mostrarSesionActiva() {
-    document.getElementById("login-area").innerHTML = `
-        <div class="session-box">
-            <span class="user-label">Sesión activa</span>
-            <button onclick="cerrarSesion()" class="logout-btn">Salir</button>
-        </div>`;
-}
-
 window.onload = function () {
     if (localStorage.getItem("google_session")) {
-        mostrarSesionActiva();
+        document.getElementById("login-area").innerHTML = `
+            <div class="session-box">
+                <span style="font-size:12px">Sesión activa</span>
+                <button onclick="cerrarSesion()" class="logout-btn">Salir</button>
+            </div>`;
     } else {
         google.accounts.id.initialize({
             client_id: "406323672638-hki7o8576utok1gd043l3jni5vhrcsdo.apps.googleusercontent.com",
@@ -251,7 +217,7 @@ window.onload = function () {
         });
         google.accounts.id.renderButton(
             document.getElementById("login-area"),
-            { theme: "outline", size: "large", text: "signin_with", shape: "pill", width: "220" }
+            { theme: "outline", size: "large", shape: "pill" }
         );
     }
 };

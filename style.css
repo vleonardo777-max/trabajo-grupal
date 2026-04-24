@@ -1,13 +1,15 @@
+@charset "UTF-8";
+
 /* =========================================
    1. CONFIGURACIÓN GLOBAL Y VARIABLES
    ========================================= */
 :root {
-    --primary-blue: #0084ff;    /* Azul vibrante del título */
-    --dark-blue: #0d47a1;      /* Azul para botones activos */
-    --light-blue: #bbdefb;     /* Azul claro para horarios */
-    --bg-contact: #90caf9;     /* Fondo sección contacto */
-    --tag-blue: #2196f3;       /* Azul de etiquetas */
-    --gray-divider: #555555;   /* Franjas de 30px */
+    --primary-blue: #0084ff;    
+    --dark-blue: #0d47a1;      
+    --light-blue: #bbdefb;     
+    --bg-contact: #90caf9;     
+    --tag-blue: #2196f3;       
+    --gray-divider: #555555;   
 }
 
 * {
@@ -22,6 +24,7 @@ body {
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /* =========================================
@@ -31,42 +34,51 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 0 5%; /* Ajustado */
     background: #fff;
     border-bottom: 1px solid #eee;
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 70px;
 }
 
 .logo img {
-    height: 45px;
+    height: 50px; 
     width: auto;
+    display: block;
+}
+
+.header nav {
+    display: flex;
+    gap: 10px;
 }
 
 .header nav a {
     text-decoration: none;
     color: #333;
-    margin: 0 10px;
-    font-size: 14px;
-    background: #f0f4f8; /* Estilo de botón redondeado grisáceo */
-    padding: 6px 18px;
+    font-size: 13px;
+    background: #f0f4f8; 
+    padding: 8px 16px;
     border-radius: 20px;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+}
+
+.header nav a:hover {
+    background: var(--light-blue);
 }
 
 /* Auth Container */
 .auth-container {
-    min-width: 220px;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
 }
 
 .session-box {
     display: flex;
     align-items: center;
     background: #f8f9fa;
-    padding: 5px 15px;
+    padding: 5px 12px;
     border-radius: 50px;
     border: 1px solid #ddd;
 }
@@ -75,45 +87,48 @@ body {
     background: #333;
     color: white;
     border: none;
-    padding: 5px 12px;
-    border-radius: 15px;
+    padding: 4px 10px;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 11px;
-    margin-left: 10px;
+    margin-left: 8px;
 }
 
 /* =========================================
    3. SECCIÓN HERO
    ========================================= */
 .hero {
-    padding: 80px 5% 60px;
+    padding: 60px 5%;
     text-align: center;
+    background: #fff;
 }
 
 .hero-title {
     color: var(--primary-blue);
-    font-size: 80px; /* Tamaño masivo según diseño */
+    font-size: 70px; /* Cambiado de clamp a fijo por si tu navegador no lo soporta */
     font-weight: 900;
     line-height: 0.9;
     letter-spacing: -2px;
     margin-bottom: 25px;
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
     font-size: 16px;
-    max-width: 650px;
+    max-width: 600px;
     margin: 0 auto;
     font-weight: bold;
     color: #333;
-    border: 1px solid #333; /* Recuadro del subtítulo */
-    padding: 15px;
+    border: 2px solid #333; 
+    padding: 20px;
+    background: #fff;
 }
 
 /* =========================================
-   4. BLOQUES DE SECCIÓN (FRANJAS GRISES)
+   4. BLOQUES DE SECCIÓN
    ========================================= */
 .about, .catalog {
-    border-top: 30px solid var(--gray-divider); /* Franja divisoria */
+    border-top: 30px solid var(--gray-divider); 
     padding: 60px 10%;
 }
 
@@ -122,22 +137,26 @@ body {
    ========================================= */
 .section-title {
     color: #2c569e;
-    font-size: 36px;
+    font-size: 32px;
     text-align: center;
     margin-bottom: 25px;
     font-weight: bold;
 }
 
-.philosophy-title {
-    color: #2c569e;
-    text-decoration: underline;
+.about-text {
     text-align: center;
-    margin: 30px 0 15px;
+    max-width: 800px;
+    margin: 0 auto 30px;
 }
 
 .philosophy-list {
     list-style: none;
     text-align: center;
+    padding: 0;
+}
+
+.philosophy-list li {
+    margin-bottom: 10px;
 }
 
 /* =========================================
@@ -146,16 +165,16 @@ body {
 .categories-tags {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 35px;
+    gap: 10px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
 .tag {
     background: var(--tag-blue);
     color: white;
-    padding: 10px 22px;
-    border-radius: 12px;
+    padding: 8px 20px;
+    border-radius: 8px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
@@ -165,18 +184,18 @@ body {
     background: var(--dark-blue);
 }
 
-/* Buscador */
 .search-bar-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .search-box {
-    border: 1.5px solid #333;
-    border-radius: 8px;
-    padding: 8px 15px;
-    width: 350px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 400px;
     display: flex;
     align-items: center;
 }
@@ -186,38 +205,36 @@ body {
     outline: none;
     width: 100%;
     margin-left: 10px;
+    font-size: 16px;
 }
 
 /* Grid de Libros */
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .book-item {
     display: flex;
-    gap: 25px;
+    gap: 20px;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #eee;
 }
 
 .book-cover img {
-    width: 190px;
-    height: 270px;
+    width: 140px;
+    height: 200px;
     object-fit: cover;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.book-details h3 {
-    font-size: 22px;
-    margin-bottom: 8px;
 }
 
 .btn-details {
     background: #333;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 8px 15px;
+    border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
 }
@@ -226,69 +243,64 @@ body {
    7. CONTACTO Y HORARIOS
    ========================================= */
 .contact-section {
-    background: var(--bg-contact); /* Fondo azul cielo */
+    background: var(--bg-contact);
     text-align: center;
-    padding: 60px 10%;
+    padding: 60px 5%;
 }
 
 .contact-card {
     background: #42a5f5;
-    border: 2.5px solid #1e88e5;
+    border: 2px solid #1e88e5;
     display: inline-block;
-    padding: 12px 40px;
-    border-radius: 12px;
+    padding: 15px 30px;
+    border-radius: 8px;
     color: white;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .schedule-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 12px;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    max-width: 900px;
     margin: 20px auto;
 }
 
 .day-card {
     background: var(--light-blue);
-    padding: 18px 10px;
-    border-radius: 12px;
+    padding: 15px 5px;
+    border-radius: 8px;
     color: #0d47a1;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 /* =========================================
    8. FOOTER
    ========================================= */
 .footer-main {
-    padding: 50px 8% 30px;
+    padding: 40px 5% 20px;
     background: #fff;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 30px;
-    border-top: 1px solid #ccc;
-    padding-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
 }
 
 .footer-bottom {
-    margin-top: 40px;
-    padding-top: 20px;
     border-top: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: #777;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 11px;
+    color: #999;
 }
 
 /* =========================================
    9. RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
-    .hero-title { font-size: 45px; }
-    .books-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 40px; }
     .book-item { flex-direction: column; align-items: center; text-align: center; }
 }
