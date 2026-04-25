@@ -97,13 +97,13 @@
 
         <article class="book-item cat-ingenieria">
             <div class="book-cover">
-                <div class="book-placeholder-visual" style="background:#eee; height:270px; width:190px;"></div>
+                <img src="portada_fisica.jpg" alt="Física Compendio">
             </div>
             <div class="book-details">
-                <h3>Cálculo de una variable</h3>
-                <p class="author">Autor: James Stewart</p>
-                <p class="summary">El texto de referencia mundial para ingeniería y ciencias. Cubre límites, derivadas e integrales.</p>
-                <button class="btn-details" onclick="verDetalles('Cálculo de una variable')">Ver detalles</button>
+                <h3>Física - Compendio</h3>
+                <p class="author">Autor: Varios</p>
+                <p class="summary">La colección Compendios presenta resumida pero consistente teoría para facilitar el estudio.</p>
+                <button class="btn-details" onclick="verDetalles('Fisica Compendio')">Ver detalles</button>
             </div>
         </article>
     </div>
@@ -111,8 +111,7 @@
 
 <section class="contact-section" id="contact">
     <div class="contact-card">
-        <p>Contacto: contacto@lectum.pe</p>
-        <p>Cel.: 953405501</p>
+        <p>Contacto: contacto@lectum.pe | Cel.: 953405501</p>
     </div>
     
     <div class="schedule-container">
@@ -133,26 +132,43 @@
     <div class="footer-grid">
         <div class="footer-col">
             <h5>Lectum</h5>
-            <a href="#">Sobre Nosotros</a>
+            <a href="#about">Sobre Nosotros</a>
             <a href="#">Misión</a>
+            <a href="#contact">Contáctanos</a>
         </div>
         <div class="footer-col">
-            <h5>Ayuda</h5>
+            <h5>Ayuda y Soporte</h5>
             <a href="#">¿Cómo comprar?</a>
+            <a href="#">Formulario de pedido</a>
             <a href="#">Preguntas Frecuentes</a>
         </div>
         <div class="footer-col">
+            <h5>Explora</h5>
+            <a href="#">Literatura</a>
+            <a href="#">Textos Académicos</a>
+            <a href="#">Novelas</a>
+        </div>
+        <div class="footer-col">
             <h5>Legal</h5>
-            <p>Términos y Condiciones</p>
-            <p>Política de Privacidad</p>
+            <p>Términos y Condiciones: Reglas sobre el uso de los archivos PDF adquiridos.</p>
+            <p>Política de Privacidad: Cómo protegemos tus datos y los de tu pago por Yape.</p>
         </div>
     </div>
     <div class="footer-bottom">
         <p>© 2026 Lectum. Todos los derechos reservados.</p>
+        <div class="bottom-links">
+            <span>Sobre Nosotros</span> | <span>Términos y Condiciones</span> | <span>Política de Privacidad</span> | <span>Preguntas Frecuentes</span>
+        </div>
     </div>
 </footer>
 
 <script>
+// Función para redirigir a la página de detalles
+function verDetalles(nombreLibro) {
+    // Redirige a la nueva página de detalles creada
+    window.location.href = "detalles.html";
+}
+
 function filtrarLibros(categoria, elemento) {
     const tags = document.querySelectorAll('.tag');
     tags.forEach(t => t.classList.remove('active'));
@@ -180,17 +196,8 @@ function buscarLibro() {
 
 function limpiarBusqueda() {
     document.getElementById('search-input').value = '';
-    filtrarLibros('all', document.querySelector('.tag'));
-}
-
-function verDetalles(nombreLibro) {
-    const sesion = localStorage.getItem("google_session");
-    if (sesion) {
-        alert("Cargando detalles de: " + nombreLibro);
-    } else {
-        alert("Por favor, inicia sesión con Google para ver más.");
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    const todosTag = document.querySelector('.tag');
+    filtrarLibros('all', todosTag);
 }
 
 function handleCredentialResponse(response) {

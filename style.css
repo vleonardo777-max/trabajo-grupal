@@ -1,306 +1,591 @@
 @charset "UTF-8";
 
-/* =========================================
-   1. CONFIGURACIÓN GLOBAL Y VARIABLES
-   ========================================= */
-:root {
-    --primary-blue: #0084ff;    
-    --dark-blue: #0d47a1;      
-    --light-blue: #bbdefb;     
-    --bg-contact: #90caf9;     
-    --tag-blue: #2196f3;       
-    --gray-divider: #555555;   
+/* ==================================================
+   RESET GENERAL
+================================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica', Arial, sans-serif;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    background-color: #ffffff;
-    color: #333;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#ffffff;
+    color:#222;
+    line-height:1.5;
+    overflow-x:hidden;
 }
 
-/* =========================================
-   2. HEADER Y NAVEGACIÓN
-   ========================================= */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%; /* Ajustado */
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: 70px;
+/* ==================================================
+   CONTENEDORES (AHORA ANCHO COMPLETO)
+================================================== */
+.header,
+.hero,
+.about .container,
+.catalog,
+.detalles-container,
+.contact-section,
+.footer-main{
+    width:100%;
+    max-width:100%;
+    margin:0;
 }
 
-.logo img {
-    height: 50px; 
-    width: auto;
-    display: block;
+/* ==================================================
+   HEADER
+================================================== */
+.header{
+    height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 50px;
+    background:#fff;
+    border-bottom:1px solid #e5e5e5;
+    position:sticky;
+    top:0;
+    z-index:999;
 }
 
-.header nav {
-    display: flex;
-    gap: 10px;
+.logo img{
+    height:48px;
 }
 
-.header nav a {
-    text-decoration: none;
-    color: #333;
-    font-size: 13px;
-    background: #f0f4f8; 
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
+.header nav{
+    display:flex;
+    gap:16px;
 }
 
-.header nav a:hover {
-    background: var(--light-blue);
+.header nav a{
+    text-decoration:none;
+    color:#333;
+    background:#eef5fc;
+    padding:10px 18px;
+    border-radius:8px;
+    font-size:15px;
+    transition:.2s;
 }
 
-/* Auth Container */
-.auth-container {
-    display: flex;
-    align-items: center;
+.header nav a:hover{
+    background:#dcecff;
 }
 
-.session-box {
-    display: flex;
-    align-items: center;
-    background: #f8f9fa;
-    padding: 5px 12px;
-    border-radius: 50px;
-    border: 1px solid #ddd;
+.auth-container{
+    min-width:220px;
+    display:flex;
+    justify-content:flex-end;
 }
 
-.logout-btn {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 4px 10px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 11px;
-    margin-left: 8px;
+.session-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
-/* =========================================
-   3. SECCIÓN HERO
-   ========================================= */
-.hero {
-    padding: 60px 5%;
-    text-align: center;
-    background: #fff;
+.logout-btn{
+    background:#0b8ff9;
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
 }
 
-.hero-title {
-    color: var(--primary-blue);
-    font-size: 70px; /* Cambiado de clamp a fijo por si tu navegador no lo soporta */
-    font-weight: 900;
-    line-height: 0.9;
-    letter-spacing: -2px;
-    margin-bottom: 25px;
-    text-transform: uppercase;
+/* ==================================================
+   HERO
+================================================== */
+.hero{
+    padding:90px 70px 80px;
 }
 
-.hero-subtitle {
-    font-size: 16px;
-    max-width: 600px;
-    margin: 0 auto;
-    font-weight: bold;
-    color: #333;
-    border: 2px solid #333; 
-    padding: 20px;
-    background: #fff;
+.hero-title{
+    font-size:92px;
+    line-height:.92;
+    color:#0b8ff9;
+    font-weight:900;
+    max-width:950px;
+    margin-bottom:22px;
 }
 
-/* =========================================
-   4. BLOQUES DE SECCIÓN
-   ========================================= */
-.about, .catalog {
-    border-top: 30px solid var(--gray-divider); 
-    padding: 60px 10%;
+.hero-subtitle{
+    font-size:22px;
+    max-width:900px;
 }
 
-/* =========================================
-   5. SOBRE NOSOTROS
-   ========================================= */
-.section-title {
-    color: #2c569e;
-    font-size: 32px;
-    text-align: center;
-    margin-bottom: 25px;
-    font-weight: bold;
+/* ==================================================
+   SEPARADORES
+================================================== */
+.about,
+.catalog,
+.how-to-buy,
+.recommendations,
+.contact-section{
+    border-top:18px solid #5a5a5a;
 }
 
-.about-text {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 30px;
+/* ==================================================
+   SOBRE NOSOTROS
+================================================== */
+.about{
+    padding:80px 70px;
 }
 
-.philosophy-list {
-    list-style: none;
-    text-align: center;
-    padding: 0;
+.section-title{
+    text-align:center;
+    color:#1565c0;
+    font-size:46px;
+    margin-bottom:28px;
 }
 
-.philosophy-list li {
-    margin-bottom: 10px;
+.about-text{
+    text-align:center;
+    font-size:21px;
+    max-width:1100px;
+    margin:auto;
 }
 
-/* =========================================
-   6. CATÁLOGO Y FILTRADO
-   ========================================= */
-.categories-tags {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+.philosophy{
+    margin-top:40px;
+    text-align:center;
 }
 
-.tag {
-    background: var(--tag-blue);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
+.philosophy-title{
+    font-size:28px;
+    margin-bottom:18px;
+    font-weight:bold;
 }
 
-.tag.active {
-    background: var(--dark-blue);
+.philosophy-list{
+    list-style:none;
+    display:inline-block;
+    text-align:left;
 }
 
-.search-bar-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
+.philosophy-list li{
+    font-size:20px;
+    margin-bottom:10px;
 }
 
-.search-box {
-    border: 2px solid #333;
-    border-radius: 4px;
-    padding: 10px 15px;
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    align-items: center;
+/* ==================================================
+   CATALOGO
+================================================== */
+.catalog{
+    padding:80px 70px;
 }
 
-.search-box input {
-    border: none;
-    outline: none;
-    width: 100%;
-    margin-left: 10px;
-    font-size: 16px;
+.categories-tags{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
 }
 
-/* Grid de Libros */
-.books-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.tag{
+    background:#69b9ff;
+    color:#fff;
+    padding:12px 24px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
 }
 
-.book-item {
-    display: flex;
-    gap: 20px;
-    background: #fff;
-    padding: 15px;
-    border: 1px solid #eee;
+.tag.active{
+    background:#005de8;
 }
 
-.book-cover img {
-    width: 140px;
-    height: 200px;
-    object-fit: cover;
+.search-bar-container{
+    display:flex;
+    justify-content:center;
+    margin-bottom:55px;
 }
 
-.btn-details {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+.search-box{
+    width:520px;
+    border:2px solid #333;
+    border-radius:10px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    padding:0 15px;
 }
 
-/* =========================================
-   7. CONTACTO Y HORARIOS
-   ========================================= */
-.contact-section {
-    background: var(--bg-contact);
-    text-align: center;
-    padding: 60px 5%;
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:16px;
 }
 
-.contact-card {
-    background: #42a5f5;
-    border: 2px solid #1e88e5;
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    margin-bottom: 40px;
+.books-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:45px;
 }
 
-.schedule-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
-    max-width: 900px;
-    margin: 20px auto;
+.book-item{
+    display:flex;
+    gap:20px;
 }
 
-.day-card {
-    background: var(--light-blue);
-    padding: 15px 5px;
-    border-radius: 8px;
-    color: #0d47a1;
-    font-size: 11px;
+.book-cover img{
+    width:180px;
+    height:260px;
+    object-fit:cover;
 }
 
-/* =========================================
-   8. FOOTER
-   ========================================= */
-.footer-main {
-    padding: 40px 5% 20px;
-    background: #fff;
+.book-details h3{
+    color:#1876d8;
+    font-size:28px;
+    margin-bottom:10px;
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+.book-details p{
+    font-size:15px;
+    margin-bottom:8px;
 }
 
-.footer-bottom {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-    text-align: center;
-    font-size: 11px;
-    color: #999;
+.btn-details{
+    margin-top:10px;
+    background:#005de8;
+    color:#fff;
+    border:none;
+    padding:11px 18px;
+    border-radius:8px;
+    cursor:pointer;
 }
 
-/* =========================================
-   9. RESPONSIVE
-   ========================================= */
-@media (max-width: 768px) {
-    .hero-title { font-size: 40px; }
-    .book-item { flex-direction: column; align-items: center; text-align: center; }
+/* ==================================================
+   DETALLES
+================================================== */
+.detalles-container{
+    padding:80px 70px;
+}
+
+.book-display{
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:60px;
+    align-items:start;
+}
+
+.main-cover{
+    width:100%;
+}
+
+.detail-title{
+    font-size:54px;
+    color:#0b8ff9;
+    margin-bottom:12px;
+}
+
+.price{
+    font-size:42px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.detail-text{
+    font-size:18px;
+    line-height:1.8;
+}
+
+.action-buttons{
+    display:flex;
+    gap:14px;
+    margin-top:28px;
+    flex-wrap:wrap;
+}
+
+.btn-obtener{
+    background:#005de8;
+    color:#fff;
+    border:none;
+    padding:15px 28px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn-outline{
+    background:#fff;
+    border:1px solid #999;
+    padding:15px 22px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* ==================================================
+   COMO OBTENER
+================================================== */
+.how-to-buy{
+    padding:80px 70px;
+}
+
+.blue-title{
+    color:#0b8ff9;
+    font-size:42px;
+    margin-bottom:35px;
+}
+
+.tutorial-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+}
+
+.steps-text p{
+    font-size:18px;
+    margin-bottom:18px;
+}
+
+.qr-container{
+    width:250px;
+    background:#9225b9;
+    padding:14px;
+    margin:20px 0;
+}
+
+.qr-img{
+    width:100%;
+}
+
+.video-side{
+    text-align:center;
+}
+
+.video-label{
+    display:inline-block;
+    background:#87c6ff;
+    padding:8px 20px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.video-placeholder{
+    height:360px;
+    border:8px solid #1976d2;
+    background:#ddd;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.play-button{
+    width:0;
+    height:0;
+    border-top:35px solid transparent;
+    border-bottom:35px solid transparent;
+    border-left:55px solid #fff;
+}
+
+/* ==================================================
+   RECOMENDACIONES
+================================================== */
+.recommendations{
+    padding:80px 70px;
+}
+
+.section-title-left{
+    font-size:42px;
+    margin-bottom:30px;
+}
+
+.rec-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+}
+
+.rec-card{
+    display:flex;
+    gap:20px;
+}
+
+.rec-card img{
+    width:210px;
+    height:290px;
+    object-fit:cover;
+}
+
+.rec-info h3{
+    font-size:28px;
+    color:#1876d8;
+    margin-bottom:10px;
+}
+
+.rec-info p{
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* ==================================================
+   CONTACTO (MISMO EN INICIO Y DETALLES)
+================================================== */
+.contact-section{
+    background:#72b7f2;
+    padding:65px 70px;
+    text-align:center;
+}
+
+.contact-card{
+    display:inline-block;
+    background:#53a8ee;
+    color:#fff;
+    padding:15px 30px;
+    border-radius:8px;
+    margin-bottom:28px;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.schedule-container h4{
+    margin-bottom:22px;
+    font-size:24px;
+}
+
+.schedule-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.day-card{
+    background:#a9d4fb;
+    padding:18px 10px;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.footer-slogan{
+    margin-top:24px;
+    font-size:20px;
+}
+
+/* ==================================================
+   FOOTER (MISMO EN DETALLES)
+================================================== */
+.footer-main{
+    padding:65px 70px 35px;
+    background:#fff;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:45px;
+    margin-bottom:35px;
+}
+
+.footer-col h5{
+    font-size:26px;
+    margin-bottom:16px;
+}
+
+.footer-col a,
+.footer-col p{
+    display:block;
+    text-decoration:none;
+    color:#333;
+    margin-bottom:9px;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.footer-bottom{
+    border-top:1px solid #ddd;
+    padding-top:22px;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    font-size:14px;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+@media(max-width:1100px){
+
+.books-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.book-display,
+.tutorial-grid,
+.rec-grid{
+    grid-template-columns:1fr;
+}
+
+.schedule-grid{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.footer-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.hero-title{
+    font-size:70px;
+}
+
+}
+
+@media(max-width:768px){
+
+.header{
+    flex-direction:column;
+    height:auto;
+    padding:20px;
+    gap:14px;
+}
+
+.header nav{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero,
+.about,
+.catalog,
+.detalles-container,
+.how-to-buy,
+.recommendations,
+.contact-section,
+.footer-main{
+    padding-left:22px;
+    padding-right:22px;
+}
+
+.hero-title{
+    font-size:46px;
+}
+
+.books-grid,
+.footer-grid{
+    grid-template-columns:1fr;
+}
+
+.schedule-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.footer-bottom{
+    flex-direction:column;
+    text-align:center;
+}
+
+.book-item{
+    flex-direction:column;
+}
+
+.book-cover img{
+    width:100%;
+    height:auto;
+}
+
 }
