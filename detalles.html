@@ -1,96 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles del Libro - Lectum</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="yape/2.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detalles del Libro - Lectum</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="yape/2.png">
 </head>
+
 <body>
 
 <header class="header">
-    <div class="logo"><img src="yape/2.png" alt="Lectum"></div>
+    <div class="logo">
+        <img src="yape/2.png" alt="Lectum">
+    </div>
+
     <nav>
         <a href="index.html">Inicio</a>
         <a href="index.html#catalog">Categorías</a>
         <a href="#contact">Contacto</a>
     </nav>
-    <button class="btn-registrate" style="background:#0061f2; color:white; border:none; padding:10px 25px; border-radius:5px; font-weight:bold;">Regístrate</button>
+
+    <button class="btn-registrate" style="background:#0061f2;color:#fff;border:none;padding:10px 25px;border-radius:6px;font-weight:bold;">
+        Regístrate
+    </button>
 </header>
 
 <main class="detalles-container">
+
+    <!-- HERO LIBRO -->
     <section class="book-hero">
         <div class="book-display">
+
             <img src="portada_fisica.jpg" alt="Física Compendio" class="main-cover">
+
             <div class="book-info-side">
                 <h1 class="detail-title">Física - Compendio</h1>
+
                 <p class="price">S./ 2.00</p>
+
                 <p class="detail-text">
-                    La colección Compendios presenta resumida pero consistente teoría para facilitar el estudio... 
+                    La colección Compendios presenta resumida pero consistente teoría para facilitar el estudio.
                     No olvides guardar la captura de pantalla de la operación confirmada.
                 </p>
-                <div class="action-buttons">
-                    <button class="btn-obtener">OPTENER</button>
-                    <button class="btn-outline">¿Cómo Obtener?</button>
-                    <button class="btn-outline">Sugerencia</button>
+
+                <div class="action-buttons" style="margin-top:35px;margin-bottom:25px;">
+
+                    <!-- BOTON FORM -->
+                    <button class="btn-obtener"
+                    onclick="window.open('https://forms.google.com', '_blank')">
+                        OBTENER
+                    </button>
+
+                    <!-- BOTON BAJAR -->
+                    <button class="btn-outline"
+                    onclick="scrollToSection('como-obtener')">
+                        ¿Cómo Obtener?
+                    </button>
+
+                    <!-- BOTON BAJAR -->
+                    <button class="btn-outline"
+                    onclick="scrollToSection('sugerencias')">
+                        Sugerencia
+                    </button>
+
                 </div>
+
             </div>
         </div>
     </section>
 
     <div class="section-divider-gray"></div>
 
-    <section class="how-to-buy">
+    <!-- COMO OBTENER -->
+    <section class="how-to-buy" id="como-obtener">
+
         <h2 class="blue-title">¿Cómo obtener tu libro?</h2>
+
         <div class="tutorial-grid">
+
             <div class="steps-text">
-                <p><strong>Paso 1: Realiza tu pago</strong><br>Escanea nuestro código QR y realiza el pago de S/ 2.00...</p>
+
+                <p>
+                    <strong>Paso 1: Realiza tu pago</strong><br>
+                    Escanea nuestro código QR y realiza el pago de S/ 2.00.
+                    Guarda tu captura de pago.
+                </p>
+
                 <div class="qr-container">
                     <img src="yape/qr_yape.png" alt="QR Yape" class="qr-img">
                 </div>
-                <p><strong>Paso 2: Registra tu pedido en el Formulario</strong><br>Haz clic en el botón 'Comprar'...</p>
-                <p><strong>Paso 3: Recibe tu Libro</strong><br>¡Listo! Una vez validemos tu información...</p>
+
+                <p>
+                    <strong>Paso 2: Completa el formulario</strong><br>
+                    Presiona el botón OBTENER y llena tus datos correctamente.
+                </p>
+
+                <p>
+                    <strong>Paso 3: Recibe tu libro</strong><br>
+                    Luego de verificar el pago, recibirás el PDF en tu correo.
+                </p>
+
             </div>
+
             <div class="video-side">
                 <span class="video-label">Video Tutorial</span>
+
                 <div class="video-placeholder">
                     <div class="play-button"></div>
                 </div>
             </div>
+
         </div>
+
     </section>
 
     <div class="section-divider-gray"></div>
 
-    <section class="recommendations">
+    <!-- SUGERENCIAS -->
+    <section class="recommendations" id="sugerencias">
+
         <h2 class="section-title-left">Recomendaciones</h2>
+
         <div class="rec-grid">
+
             <article class="rec-card">
                 <img src="portada_fisica_uni.jpg" alt="Fisica UNI">
+
                 <div class="rec-info">
                     <h3>Física - Compendio UNI</h3>
-                    <p>Autor: Iván B. Becerra Tello...</p>
+                    <p>Autor: Iván B. Becerra Tello</p>
+                    <p>Excelente para estudiantes preuniversitarios.</p>
                 </div>
             </article>
+
             <article class="rec-card">
                 <img src="portada_fisica_esencial.jpg" alt="Fisica Esencial">
+
                 <div class="rec-info">
                     <h3>Física esencial</h3>
-                    <p>Autor: Charles Bronson Paucar Damas...</p>
+                    <p>Autor: Charles Bronson Paucar</p>
+                    <p>Ideal para reforzar conceptos fundamentales.</p>
                 </div>
             </article>
+
         </div>
+
     </section>
+
 </main>
 
+<!-- CONTACTO -->
 <section class="contact-section" id="contact">
+
     <div class="contact-card">
         <p>Contacto: contacto@lectum.pe | Cel.: 953405501</p>
     </div>
-    
+
     <div class="schedule-container">
+
         <h4>HORARIO DE ATENCIÓN</h4>
+
         <div class="schedule-grid">
             <div class="day-card"><strong>Lunes</strong><br>6:00 am-5:00 pm</div>
             <div class="day-card"><strong>Martes</strong><br>9:00 am-8:00 pm</div>
@@ -99,43 +169,64 @@
             <div class="day-card"><strong>Viernes</strong><br>6:00 am-9:00 pm</div>
             <div class="day-card"><strong>Sábado</strong><br>9:00 am-7:00 pm</div>
         </div>
+
     </div>
-    <p class="footer-slogan">"En Lectum creemos que el conocimiento no debería ser un lujo."</p>
+
+    <p class="footer-slogan">
+        "En Lectum creemos que el conocimiento no debería ser un lujo."
+    </p>
+
 </section>
 
+<!-- FOOTER -->
 <footer class="footer-main">
+
     <div class="footer-grid">
+
         <div class="footer-col">
             <h5>Lectum</h5>
-            <a href="#about">Sobre Nosotros</a>
+            <a href="index.html">Inicio</a>
             <a href="#">Misión</a>
             <a href="#contact">Contáctanos</a>
         </div>
+
         <div class="footer-col">
             <h5>Ayuda y Soporte</h5>
-            <a href="#">¿Cómo comprar?</a>
-            <a href="#">Formulario de pedido</a>
+            <a href="#como-obtener">¿Cómo comprar?</a>
+            <a href="#">Formulario</a>
             <a href="#">Preguntas Frecuentes</a>
         </div>
+
         <div class="footer-col">
             <h5>Explora</h5>
             <a href="#">Literatura</a>
             <a href="#">Textos Académicos</a>
             <a href="#">Novelas</a>
         </div>
+
         <div class="footer-col">
             <h5>Legal</h5>
-            <p>Términos y Condiciones: Reglas sobre el uso de los archivos PDF adquiridos.</p>
-            <p>Política de Privacidad: Cómo protegemos tus datos y los de tu pago por Yape.</p>
+            <p>Términos y Condiciones.</p>
+            <p>Política de Privacidad.</p>
         </div>
+
     </div>
+
     <div class="footer-bottom">
         <p>© 2026 Lectum. Todos los derechos reservados.</p>
-        <div class="bottom-links">
-            <span>Sobre Nosotros</span> | <span>Términos y Condiciones</span> | <span>Política de Privacidad</span> | <span>Preguntas Frecuentes</span>
-        </div>
     </div>
+
 </footer>
+
+<!-- SCRIPT -->
+<script>
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+}
+</script>
 
 </body>
 </html>
