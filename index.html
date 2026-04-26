@@ -1,233 +1,546 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lectum - Tu próximo libro al mejor precio</title>
-    
-    <link rel="icon" type="image/png" href="yape/2.png">
-    
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lectum - Tu próximo libro al mejor precio</title>
+
+<link rel="icon" type="image/png" href="yape/2.png">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
 
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+
 <header class="header">
+
     <div class="logo">
         <img src="yape/2.png" alt="Lectum Logo">
     </div>
+
     <nav>
         <a href="#">Inicio</a>
         <a href="#catalog">Categorías</a>
         <a href="#contact">Atención</a>
     </nav>
+
     <div class="auth-container">
         <div id="login-area"></div>
     </div>
+
 </header>
 
+
+<!-- ================================================= -->
+<!-- HERO -->
+<!-- ================================================= -->
+
 <section class="hero">
+
     <div class="hero-content">
-        <h1 class="hero-title">TU PRÓXIMO LIBRO <br> AL MEJOR PRECIO</h1>
-        <p class="hero-subtitle">"Textos académicos especializados. Explora nuestro catálogo y potencia tu aprendizaje por el precio de un pasaje."</p>
+
+        <h1 class="hero-title">
+            TU PRÓXIMO LIBRO <br>
+            AL MEJOR PRECIO
+        </h1>
+
+        <p class="hero-subtitle">
+            Textos académicos especializados. Explora nuestro catálogo
+            y potencia tu aprendizaje por el precio de un pasaje.
+        </p>
+
     </div>
+
 </section>
 
+
+<!-- ================================================= -->
+<!-- ABOUT -->
+<!-- ================================================= -->
+
 <section class="about" id="about">
+
     <div class="container">
-        <h2 class="section-title">“Sobre Nosotros”</h2>
+
+        <h2 class="section-title">Sobre Nosotros</h2>
+
         <p class="about-text">
-            "En Lectum, convertimos la dificultad en accesibilidad. Somos un equipo apasionado por la formación académica, creando un puente entre el conocimiento y quienes más lo necesitan."
+            En Lectum convertimos la dificultad en accesibilidad.
+            Somos un equipo apasionado por la formación académica,
+            creando un puente entre el conocimiento y quienes más lo necesitan.
         </p>
-        
+
         <div class="philosophy">
+
             <h3 class="philosophy-title">Nuestra filosofía:</h3>
+
             <ul class="philosophy-list">
                 <li><strong>Accesible:</strong> Precio justo para bolsillos estudiantiles.</li>
                 <li><strong>Variedad:</strong> De ciencias básicas a literatura especializada.</li>
                 <li><strong>Calidad:</strong> Contenido curado para tu éxito profesional.</li>
             </ul>
+
         </div>
+
     </div>
+
 </section>
+
+
+<!-- ================================================= -->
+<!-- CATALOGO -->
+<!-- ================================================= -->
 
 <section class="catalog" id="catalog">
+
+    <!-- filtros -->
     <div class="categories-tags">
-        <span class="tag active" onclick="filtrarLibros('all', this)">Todos</span>
-        <span class="tag" onclick="filtrarLibros('ingenieria', this)">Ingeniería y Ciencias</span>
-        <span class="tag" onclick="filtrarLibros('lector', this)">Plan Lector</span>
-        <span class="tag" onclick="filtrarLibros('salud', this)">Ciencias de la Salud</span>
-        <span class="tag" onclick="filtrarLibros('personal', this)">Desarrollo Personal</span>
+
+        <span class="tag active"
+        onclick="filtrarLibros('all',this)">Todos</span>
+
+        <span class="tag"
+        onclick="filtrarLibros('ingenieria',this)">Ingeniería y Ciencias</span>
+
+        <span class="tag"
+        onclick="filtrarLibros('lector',this)">Plan Lector</span>
+
+        <span class="tag"
+        onclick="filtrarLibros('salud',this)">Ciencias de la Salud</span>
+
+        <span class="tag"
+        onclick="filtrarLibros('personal',this)">Desarrollo Personal</span>
+
     </div>
 
+
+    <!-- buscador -->
     <div class="search-bar-container">
+
         <div class="search-box">
+
             <span class="search-icon">🔍</span>
-            <input type="text" placeholder="Buscar libro..." id="search-input" onkeyup="buscarLibro()">
-            <span class="clear-icon" onclick="limpiarBusqueda()" style="cursor:pointer">×</span>
+
+            <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar libro..."
+            onkeyup="buscarLibro()">
+
+            <span
+            class="clear-icon"
+            onclick="limpiarBusqueda()"
+            style="cursor:pointer;">×</span>
+
         </div>
+
     </div>
 
+
+    <!-- libros -->
     <div class="books-grid" id="books-grid">
+
+
+        <!-- libro 1 -->
         <article class="book-item cat-lector">
+
             <div class="book-cover">
-                <img src="portada_literatura.jpg" alt="Literatura Compendio">
+                <img src="portada_literatura.jpg"
+                alt="Literatura Compendio">
             </div>
+
             <div class="book-details">
+
                 <h3>Literatura - Compendio</h3>
-                <p class="author">Autor: Oscar E. Ravines Hernández y Juan F. Ríos Cáceres.</p>
-                <p class="summary">El libro fortalece los conocimientos del estudiante mediante 30 capítulos sobre movimientos literarios...</p>
-                <button class="btn-details" onclick="verDetalles('Literatura Compendio')">Ver detalles</button>
+
+                <p class="author">
+                    Autor: Oscar E. Ravines Hernández y Juan F. Ríos Cáceres.
+                </p>
+
+                <p class="summary">
+                    El libro fortalece los conocimientos del estudiante
+                    mediante 30 capítulos sobre movimientos literarios.
+                </p>
+
+                <button class="btn-details"
+                onclick="verDetalles('literatura')">
+                    Ver detalles
+                </button>
+
             </div>
+
         </article>
 
+
+        <!-- libro 2 -->
         <article class="book-item cat-ingenieria">
+
             <div class="book-cover">
-                <img src="portada_mate.jpg" alt="Razonamiento Matemático">
+                <img src="portada_mate.jpg"
+                alt="Razonamiento Matemático">
             </div>
+
             <div class="book-details">
-                <h3>Razonamiento matemático</h3>
-                <p class="author">Autor: Jimmy Elvis y Javier Portuguez</p>
-                <p class="summary">Dirigido a estudiantes que desean mejorar sus habilidades de forma resumida y didáctica.</p>
-                <button class="btn-details" onclick="verDetalles('Razonamiento Matemático')">Ver detalles</button>
+
+                <h3>Razonamiento Matemático</h3>
+
+                <p class="author">
+                    Autor: Jimmy Elvis y Javier Portuguez.
+                </p>
+
+                <p class="summary">
+                    Dirigido a estudiantes que desean mejorar
+                    sus habilidades de forma resumida y didáctica.
+                </p>
+
+                <button class="btn-details"
+                onclick="verDetalles('matematica')">
+                    Ver detalles
+                </button>
+
             </div>
+
         </article>
 
+
+        <!-- libro 3 -->
         <article class="book-item cat-ingenieria">
+
             <div class="book-cover">
-                <img src="portada_fisica.jpg" alt="Física Compendio">
+                <img src="portada_fisica.jpg"
+                alt="Física Compendio">
             </div>
+
             <div class="book-details">
+
                 <h3>Física - Compendio</h3>
-                <p class="author">Autor: Varios</p>
-                <p class="summary">La colección Compendios presenta resumida pero consistente teoría para facilitar el estudio.</p>
-                <button class="btn-details" onclick="verDetalles('Fisica Compendio')">Ver detalles</button>
+
+                <p class="author">
+                    Autor: Varios
+                </p>
+
+                <p class="summary">
+                    La colección Compendios presenta resumida
+                    pero consistente teoría para facilitar el estudio.
+                </p>
+
+                <button class="btn-details"
+                onclick="verDetalles('fisica')">
+                    Ver detalles
+                </button>
+
             </div>
+
         </article>
+
+
     </div>
+
 </section>
 
+
+<!-- ================================================= -->
+<!-- CONTACTO -->
+<!-- ================================================= -->
+
 <section class="contact-section" id="contact">
+
     <div class="contact-card">
         <p>Contacto: contacto@lectum.pe | Cel.: 953405501</p>
     </div>
-    
+
     <div class="schedule-container">
+
         <h4>HORARIO DE ATENCIÓN</h4>
+
         <div class="schedule-grid">
-            <div class="day-card"><strong>Lunes</strong><br>6:00 am-5:00 pm</div>
-            <div class="day-card"><strong>Martes</strong><br>9:00 am-8:00 pm</div>
-            <div class="day-card"><strong>Miércoles</strong><br>8:00 am-9:00 pm</div>
-            <div class="day-card"><strong>Jueves</strong><br>7:00 am-6:00 pm</div>
-            <div class="day-card"><strong>Viernes</strong><br>6:00 am-9:00 pm</div>
-            <div class="day-card"><strong>Sábado</strong><br>9:00 am-7:00 pm</div>
+
+            <div class="day-card">
+                <strong>Lunes</strong><br>
+                6:00 am - 5:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Martes</strong><br>
+                9:00 am - 8:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Miércoles</strong><br>
+                8:00 am - 9:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Jueves</strong><br>
+                7:00 am - 6:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Viernes</strong><br>
+                6:00 am - 9:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Sábado</strong><br>
+                9:00 am - 7:00 pm
+            </div>
+
         </div>
+
     </div>
-    <p class="footer-slogan">"En Lectum creemos que el conocimiento no debería ser un lujo."</p>
+
+    <p class="footer-slogan">
+        En Lectum creemos que el conocimiento no debería ser un lujo.
+    </p>
+
 </section>
 
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
 <footer class="footer-main">
+
     <div class="footer-grid">
+
         <div class="footer-col">
             <h5>Lectum</h5>
             <a href="#about">Sobre Nosotros</a>
             <a href="#">Misión</a>
             <a href="#contact">Contáctanos</a>
         </div>
+
         <div class="footer-col">
             <h5>Ayuda y Soporte</h5>
             <a href="#">¿Cómo comprar?</a>
             <a href="#">Formulario de pedido</a>
             <a href="#">Preguntas Frecuentes</a>
         </div>
+
         <div class="footer-col">
             <h5>Explora</h5>
             <a href="#">Literatura</a>
             <a href="#">Textos Académicos</a>
             <a href="#">Novelas</a>
         </div>
+
         <div class="footer-col">
             <h5>Legal</h5>
-            <p>Términos y Condiciones: Reglas sobre el uso de los archivos PDF adquiridos.</p>
-            <p>Política de Privacidad: Cómo protegemos tus datos y los de tu pago por Yape.</p>
+            <p>Términos y Condiciones.</p>
+            <p>Política de Privacidad.</p>
         </div>
+
     </div>
+
     <div class="footer-bottom">
         <p>© 2026 Lectum. Todos los derechos reservados.</p>
-        <div class="bottom-links">
-            <span>Sobre Nosotros</span> | <span>Términos y Condiciones</span> | <span>Política de Privacidad</span> | <span>Preguntas Frecuentes</span>
-        </div>
     </div>
+
 </footer>
 
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
 <script>
-// Función para redirigir a la página de detalles
-function verDetalles(nombreLibro) {
-    // Redirige a la nueva página de detalles creada
+
+// =====================================================
+// VER DETALLES SOLO SI HAY SESIÓN
+// =====================================================
+
+function verDetalles(libro){
+
+    const sesion = localStorage.getItem("google_session");
+
+    if(!sesion){
+
+        const entrar = confirm(
+            "Para ver los detalles del libro necesitas iniciar sesión.\n\n¿Deseas iniciar sesión ahora?"
+        );
+
+        if(entrar){
+
+            google.accounts.id.prompt();
+
+            document.getElementById("login-area")
+            .scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+
+        }
+
+        return;
+    }
+
+    // guardar libro elegido
+    localStorage.setItem("libro_actual", libro);
+
+    // entrar a detalles
     window.location.href = "detalles.html";
 }
 
-function filtrarLibros(categoria, elemento) {
-    const tags = document.querySelectorAll('.tag');
-    tags.forEach(t => t.classList.remove('active'));
-    elemento.classList.add('active');
 
-    const libros = document.querySelectorAll('.book-item');
+
+// =====================================================
+// FILTROS
+// =====================================================
+
+function filtrarLibros(categoria, elemento){
+
+    const tags = document.querySelectorAll(".tag");
+
+    tags.forEach(tag => tag.classList.remove("active"));
+
+    elemento.classList.add("active");
+
+    const libros = document.querySelectorAll(".book-item");
+
     libros.forEach(libro => {
-        if (categoria === 'all' || libro.classList.contains('cat-' + categoria)) {
-            libro.style.display = 'flex';
-        } else {
-            libro.style.display = 'none';
+
+        if(
+            categoria === "all" ||
+            libro.classList.contains("cat-" + categoria)
+        ){
+            libro.style.display = "flex";
+        }else{
+            libro.style.display = "none";
         }
+
     });
+
 }
 
-function buscarLibro() {
-    const input = document.getElementById('search-input').value.toLowerCase();
-    const libros = document.querySelectorAll('.book-item');
-    
+
+
+// =====================================================
+// BUSCADOR
+// =====================================================
+
+function buscarLibro(){
+
+    const texto = document
+    .getElementById("search-input")
+    .value
+    .toLowerCase();
+
+    const libros = document.querySelectorAll(".book-item");
+
     libros.forEach(libro => {
-        const titulo = libro.querySelector('h3').innerText.toLowerCase();
-        libro.style.display = titulo.includes(input) ? 'flex' : 'none';
+
+        const titulo = libro.querySelector("h3")
+        .innerText
+        .toLowerCase();
+
+        libro.style.display =
+        titulo.includes(texto) ? "flex" : "none";
+
     });
+
 }
 
-function limpiarBusqueda() {
-    document.getElementById('search-input').value = '';
-    const todosTag = document.querySelector('.tag');
-    filtrarLibros('all', todosTag);
+function limpiarBusqueda(){
+
+    document.getElementById("search-input").value = "";
+
+    const todos = document.querySelector(".tag");
+
+    filtrarLibros("all", todos);
+
 }
 
-function handleCredentialResponse(response) {
-    localStorage.setItem("google_session", response.credential);
+
+
+// =====================================================
+// LOGIN GOOGLE
+// =====================================================
+
+function handleCredentialResponse(response){
+
+    localStorage.setItem(
+        "google_session",
+        response.credential
+    );
+
+    alert("Sesión iniciada correctamente");
+
     location.reload();
+
 }
 
-function cerrarSesion() {
+function cerrarSesion(){
+
     localStorage.removeItem("google_session");
+
+    alert("Sesión cerrada");
+
     location.reload();
+
 }
 
-window.onload = function () {
-    if (localStorage.getItem("google_session")) {
-        document.getElementById("login-area").innerHTML = `
+
+
+// =====================================================
+// AL CARGAR
+// =====================================================
+
+window.onload = function(){
+
+    const loginArea =
+    document.getElementById("login-area");
+
+    if(localStorage.getItem("google_session")){
+
+        loginArea.innerHTML = `
             <div class="session-box">
-                <span style="font-size:12px">Sesión activa</span>
-                <button onclick="cerrarSesion()" class="logout-btn">Salir</button>
-            </div>`;
-    } else {
+                <span style="font-size:12px">
+                    Sesión activa
+                </span>
+
+                <button
+                onclick="cerrarSesion()"
+                class="logout-btn">
+                    Salir
+                </button>
+            </div>
+        `;
+
+    }else{
+
         google.accounts.id.initialize({
-            client_id: "406323672638-hki7o8576utok1gd043l3jni5vhrcsdo.apps.googleusercontent.com",
-            callback: handleCredentialResponse
+            client_id:
+            "406323672638-hki7o8576utok1gd043l3jni5vhrcsdo.apps.googleusercontent.com",
+
+            callback: handleCredentialResponse,
+
+            ux_mode:"popup",
+            auto_select:false
         });
+
         google.accounts.id.renderButton(
-            document.getElementById("login-area"),
-            { theme: "outline", size: "large", shape: "pill" }
+            loginArea,
+            {
+                theme:"outline",
+                size:"large",
+                shape:"pill"
+            }
         );
+
     }
+
 };
+
 </script>
 
 </body>
