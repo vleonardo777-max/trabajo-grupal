@@ -352,7 +352,90 @@
 <!-- ================================================= -->
 <!-- JAVASCRIPT -->
 <!-- ================================================= -->
+const libros = {
 
+literatura:{
+titulo:"Literatura - Compendio",
+img:"portada_literatura.jpg",
+desc:"Libro ideal para reforzar movimientos literarios, autores, análisis y comprensión lectora.",
+
+rec:`
+<article class="rec-card">
+<img src="portada_literatura.jpg">
+<div class="rec-info">
+<h3>Literatura Universal</h3>
+<p>Autores clásicos y modernos.</p>
+</div>
+</article>
+
+<article class="rec-card">
+<img src="portada_literatura.jpg">
+<div class="rec-info">
+<h3>Plan Lector</h3>
+<p>Obras recomendadas escolares.</p>
+</div>
+</article>
+`
+},
+
+matematica:{
+titulo:"Razonamiento Matemático",
+img:"portada_mate.jpg",
+desc:"Desarrolla lógica matemática, ejercicios rápidos y razonamiento cuantitativo.",
+
+rec:`
+<article class="rec-card">
+<img src="portada_mate.jpg">
+<div class="rec-info">
+<h3>Álgebra Básica</h3>
+<p>Refuerzo para estudiantes.</p>
+</div>
+</article>
+
+<article class="rec-card">
+<img src="portada_mate.jpg">
+<div class="rec-info">
+<h3>Cálculo Inicial</h3>
+<p>Funciones y derivadas.</p>
+</div>
+</article>
+`
+},
+
+fisica:{
+titulo:"Física - Compendio",
+img:"portada_fisica.jpg",
+desc:"Teoría resumida y práctica de cinemática, dinámica, energía y electricidad.",
+
+rec:`
+<article class="rec-card">
+<img src="portada_fisica_uni.jpg">
+<div class="rec-info">
+<h3>Física UNI</h3>
+<p>Excelente nivel preuniversitario.</p>
+</div>
+</article>
+
+<article class="rec-card">
+<img src="portada_fisica_esencial.jpg">
+<div class="rec-info">
+<h3>Física esencial</h3>
+<p>Conceptos fundamentales.</p>
+</div>
+</article>
+`
+}
+
+};
+
+const elegido = localStorage.getItem("libro_actual") || "fisica";
+
+const libro = libros[elegido];
+
+document.getElementById("libro-img").src = libro.img;
+document.getElementById("libro-titulo").innerText = libro.titulo;
+document.getElementById("libro-desc").innerText = libro.desc;
+document.getElementById("recomendaciones").innerHTML = libro.rec;
 <script>
 
 // =====================================================
@@ -365,29 +448,15 @@ function verDetalles(libro){
 
     if(!sesion){
 
-        const entrar = confirm(
-            "Para ver los detalles del libro necesitas iniciar sesión.\n\n¿Deseas iniciar sesión ahora?"
-        );
+        alert("Debes iniciar sesión para ver detalles.");
 
-        if(entrar){
-
-            google.accounts.id.prompt();
-
-            document.getElementById("login-area")
-            .scrollIntoView({
-                behavior:"smooth",
-                block:"center"
-            });
-
-        }
+        google.accounts.id.prompt();
 
         return;
     }
 
-    // guardar libro elegido
     localStorage.setItem("libro_actual", libro);
 
-    // entrar a detalles
     window.location.href = "detalles.html";
 }
 
