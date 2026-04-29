@@ -101,32 +101,30 @@
 
 <section class="catalog" id="catalog">
 
-    <!-- filtros -->
+    <!-- FILTROS -->
     <div class="categories-tags">
 
-        <span class="tag active"
-        onclick="filtrarLibros('all',this)">Todos</span>
+        <span class="tag active" onclick="filtrarLibros('all',this)">Todos</span>
 
-        <span class="tag"
-        onclick="filtrarLibros('ingenieria',this)">Ingeniería y Ciencias</span>
+        <span class="tag" onclick="filtrarLibros('psicologia',this)">Psicología</span>
 
-        <span class="tag"
-        onclick="filtrarLibros('lector',this)">Plan Lector</span>
+        <span class="tag" onclick="filtrarLibros('matematica',this)">Matemática</span>
 
-        <span class="tag"
-        onclick="filtrarLibros('salud',this)">Ciencias de la Salud</span>
+        <span class="tag" onclick="filtrarLibros('comunicacion',this)">Comunicación</span>
 
-        <span class="tag"
-        onclick="filtrarLibros('personal',this)">Desarrollo Personal</span>
+        <span class="tag" onclick="filtrarLibros('fisica',this)">Física</span>
+
+        <span class="tag" onclick="filtrarLibros('quimica',this)">Química</span>
+
+        <span class="tag" onclick="filtrarLibros('sociales',this)">Ciencias Sociales</span>
 
     </div>
 
 
-    <!-- buscador -->
+    <!-- BUSCADOR -->
     <div class="search-bar-container">
 
         <div class="search-box">
-
             <span class="search-icon">🔍</span>
 
             <input
@@ -135,112 +133,258 @@
             placeholder="Buscar libro..."
             onkeyup="buscarLibro()">
 
-            <span
-            class="clear-icon"
-            onclick="limpiarBusqueda()"
-            style="cursor:pointer;">×</span>
-
+            <span class="clear-icon"
+            onclick="limpiarBusqueda()">×</span>
         </div>
 
     </div>
 
 
-    <!-- libros -->
-    <div class="books-grid" id="books-grid">
+    <!-- CONTENEDOR CARRUSEL -->
+    <div class="catalog-wrapper">
+
+        <button class="slide-btn left"
+        onclick="moverCarrusel(-1)">❮</button>
+
+        <div class="books-grid" id="books-grid">
 
 
-        <!-- libro 1 -->
-        <article class="book-item cat-lector">
+            <!-- ========================== -->
+            <!-- PSICOLOGIA -->
+            <!-- ========================== -->
 
-            <div class="book-cover">
-                <img src="portada_literatura.jpg"
-                alt="Literatura Compendio">
-            </div>
+            <article class="book-item cat-psicologia">
+                <div class="book-cover">
+                    <img src="psico1.jpg">
+                </div>
+                <div class="book-details">
+                    <h3>Psicología General</h3>
+                    <p class="author">Introducción moderna.</p>
+                    <p class="summary">Bases de conducta humana.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('psico1')">Ver detalles</button>
+                </div>
+            </article>
 
-            <div class="book-details">
+            <article class="book-item cat-psicologia">
+                <div class="book-cover">
+                    <img src="psico2.jpg">
+                </div>
+                <div class="book-details">
+                    <h3>Psicología Social</h3>
+                    <p class="author">Relaciones humanas.</p>
+                    <p class="summary">Influencia y grupos.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('psico2')">Ver detalles</button>
+                </div>
+            </article>
 
-                <h3>Literatura - Compendio</h3>
-
-                <p class="author">
-                    Autor: Oscar E. Ravines Hernández y Juan F. Ríos Cáceres.
-                </p>
-
-                <p class="summary">
-                    El libro fortalece los conocimientos del estudiante
-                    mediante 30 capítulos sobre movimientos literarios.
-                </p>
-
-                <button class="btn-details"
-                onclick="verDetalles('literatura')">
-                    Ver detalles
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- libro 2 -->
-        <article class="book-item cat-ingenieria">
-
-            <div class="book-cover">
-                <img src="portada_mate.jpg"
-                alt="Razonamiento Matemático">
-            </div>
-
-            <div class="book-details">
-
-                <h3>Razonamiento Matemático</h3>
-
-                <p class="author">
-                    Autor: Jimmy Elvis y Javier Portuguez.
-                </p>
-
-                <p class="summary">
-                    Dirigido a estudiantes que desean mejorar
-                    sus habilidades de forma resumida y didáctica.
-                </p>
-
-                <button class="btn-details"
-                onclick="verDetalles('matematica')">
-                    Ver detalles
-                </button>
-
-            </div>
-
-        </article>
+            <article class="book-item cat-psicologia">
+                <div class="book-cover">
+                    <img src="psico3.jpg">
+                </div>
+                <div class="book-details">
+                    <h3>Psicología Educativa</h3>
+                    <p class="author">Aprendizaje escolar.</p>
+                    <p class="summary">Procesos cognitivos.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('psico3')">Ver detalles</button>
+                </div>
+            </article>
 
 
-        <!-- libro 3 -->
-        <article class="book-item cat-ingenieria">
+            <!-- ========================== -->
+            <!-- MATEMATICA -->
+            <!-- ========================== -->
 
-            <div class="book-cover">
-                <img src="portada_fisica.jpg"
-                alt="Física Compendio">
-            </div>
+            <article class="book-item cat-matematica">
+                <div class="book-cover">
+                    <img src="mate1.jpg">
+                </div>
+                <div class="book-details">
+                    <h3>Álgebra Básica</h3>
+                    <p class="author">Nivel universitario.</p>
+                    <p class="summary">Ecuaciones y funciones.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('mate1')">Ver detalles</button>
+                </div>
+            </article>
 
-            <div class="book-details">
+            <article class="book-item cat-matematica">
+                <div class="book-cover">
+                    <img src="mate2.jpg">
+                </div>
+                <div class="book-details">
+                    <h3>Geometría</h3>
+                    <p class="author">Teoría y práctica.</p>
+                    <p class="summary">Áreas y figuras.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('mate2')">Ver detalles</button>
+                </div>
+            </article>
 
-                <h3>Física - Compendio</h3>
+            <article class="book-item cat-matematica">
+                <div class="book-cover">
+                    <img src="mate3.jpg">
+                </div>
+                <div class="book-details">
+                    <h3>Cálculo I</h3>
+                    <p class="author">Funciones modernas.</p>
+                    <p class="summary">Límites y derivadas.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('mate3')">Ver detalles</button>
+                </div>
+            </article>
 
-                <p class="author">
-                    Autor: Varios
-                </p>
 
-                <p class="summary">
-                    La colección Compendios presenta resumida
-                    pero consistente teoría para facilitar el estudio.
-                </p>
+            <!-- COMUNICACION -->
 
-                <button class="btn-details"
-                onclick="verDetalles('fisica')">
-                    Ver detalles
-                </button>
+            <article class="book-item cat-comunicacion">
+                <div class="book-cover"><img src="com1.jpg"></div>
+                <div class="book-details">
+                    <h3>Redacción Académica</h3>
+                    <p class="author">Textos formales.</p>
+                    <p class="summary">Normas modernas.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('com1')">Ver detalles</button>
+                </div>
+            </article>
 
-            </div>
+            <article class="book-item cat-comunicacion">
+                <div class="book-cover"><img src="com2.jpg"></div>
+                <div class="book-details">
+                    <h3>Comprensión Lectora</h3>
+                    <p class="author">Técnicas rápidas.</p>
+                    <p class="summary">Análisis textual.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('com2')">Ver detalles</button>
+                </div>
+            </article>
 
-        </article>
+            <article class="book-item cat-comunicacion">
+                <div class="book-cover"><img src="com3.jpg"></div>
+                <div class="book-details">
+                    <h3>Ortografía Total</h3>
+                    <p class="author">Uso correcto.</p>
+                    <p class="summary">Reglas esenciales.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('com3')">Ver detalles</button>
+                </div>
+            </article>
 
+
+            <!-- FISICA -->
+
+            <article class="book-item cat-fisica">
+                <div class="book-cover"><img src="fis1.jpg"></div>
+                <div class="book-details">
+                    <h3>Física General</h3>
+                    <p class="author">Conceptos clave.</p>
+                    <p class="summary">Movimiento y fuerza.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('fis1')">Ver detalles</button>
+                </div>
+            </article>
+
+            <article class="book-item cat-fisica">
+                <div class="book-cover"><img src="fis2.jpg"></div>
+                <div class="book-details">
+                    <h3>Electricidad</h3>
+                    <p class="author">Circuitos básicos.</p>
+                    <p class="summary">Voltaje y corriente.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('fis2')">Ver detalles</button>
+                </div>
+            </article>
+
+            <article class="book-item cat-fisica">
+                <div class="book-cover"><img src="fis3.jpg"></div>
+                <div class="book-details">
+                    <h3>Física UNI</h3>
+                    <p class="author">Preuniversitario.</p>
+                    <p class="summary">Nivel alto.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('fis3')">Ver detalles</button>
+                </div>
+            </article>
+
+
+            <!-- QUIMICA -->
+
+            <article class="book-item cat-quimica">
+                <div class="book-cover"><img src="qui1.jpg"></div>
+                <div class="book-details">
+                    <h3>Química General</h3>
+                    <p class="author">Introducción.</p>
+                    <p class="summary">Átomos y enlaces.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('qui1')">Ver detalles</button>
+                </div>
+            </article>
+
+            <article class="book-item cat-quimica">
+                <div class="book-cover"><img src="qui2.jpg"></div>
+                <div class="book-details">
+                    <h3>Química Orgánica</h3>
+                    <p class="author">Carbono.</p>
+                    <p class="summary">Reacciones comunes.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('qui2')">Ver detalles</button>
+                </div>
+            </article>
+
+            <article class="book-item cat-quimica">
+                <div class="book-cover"><img src="qui3.jpg"></div>
+                <div class="book-details">
+                    <h3>Química UNI</h3>
+                    <p class="author">Avanzado.</p>
+                    <p class="summary">Preparación fuerte.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('qui3')">Ver detalles</button>
+                </div>
+            </article>
+
+
+            <!-- SOCIALES -->
+
+            <article class="book-item cat-sociales">
+                <div class="book-cover"><img src="soc1.jpg"></div>
+                <div class="book-details">
+                    <h3>Historia Universal</h3>
+                    <p class="author">Desde la antigüedad.</p>
+                    <p class="summary">Procesos históricos.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('soc1')">Ver detalles</button>
+                </div>
+            </article>
+
+            <article class="book-item cat-sociales">
+                <div class="book-cover"><img src="soc2.jpg"></div>
+                <div class="book-details">
+                    <h3>Geografía</h3>
+                    <p class="author">Mundo moderno.</p>
+                    <p class="summary">Relieve y clima.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('soc2')">Ver detalles</button>
+                </div>
+            </article>
+
+            <article class="book-item cat-sociales">
+                <div class="book-cover"><img src="soc3.jpg"></div>
+                <div class="book-details">
+                    <h3>Economía Básica</h3>
+                    <p class="author">Conceptos clave.</p>
+                    <p class="summary">Mercado y dinero.</p>
+                    <button class="btn-details"
+                    onclick="verDetalles('soc3')">Ver detalles</button>
+                </div>
+            </article>
+
+
+        </div>
+
+        <button class="slide-btn right"
+        onclick="moverCarrusel(1)">❯</button>
 
     </div>
 
@@ -352,90 +496,7 @@
 <!-- ================================================= -->
 <!-- JAVASCRIPT -->
 <!-- ================================================= -->
-const libros = {
 
-literatura:{
-titulo:"Literatura - Compendio",
-img:"portada_literatura.jpg",
-desc:"Libro ideal para reforzar movimientos literarios, autores, análisis y comprensión lectora.",
-
-rec:`
-<article class="rec-card">
-<img src="portada_literatura.jpg">
-<div class="rec-info">
-<h3>Literatura Universal</h3>
-<p>Autores clásicos y modernos.</p>
-</div>
-</article>
-
-<article class="rec-card">
-<img src="portada_literatura.jpg">
-<div class="rec-info">
-<h3>Plan Lector</h3>
-<p>Obras recomendadas escolares.</p>
-</div>
-</article>
-`
-},
-
-matematica:{
-titulo:"Razonamiento Matemático",
-img:"portada_mate.jpg",
-desc:"Desarrolla lógica matemática, ejercicios rápidos y razonamiento cuantitativo.",
-
-rec:`
-<article class="rec-card">
-<img src="portada_mate.jpg">
-<div class="rec-info">
-<h3>Álgebra Básica</h3>
-<p>Refuerzo para estudiantes.</p>
-</div>
-</article>
-
-<article class="rec-card">
-<img src="portada_mate.jpg">
-<div class="rec-info">
-<h3>Cálculo Inicial</h3>
-<p>Funciones y derivadas.</p>
-</div>
-</article>
-`
-},
-
-fisica:{
-titulo:"Física - Compendio",
-img:"portada_fisica.jpg",
-desc:"Teoría resumida y práctica de cinemática, dinámica, energía y electricidad.",
-
-rec:`
-<article class="rec-card">
-<img src="portada_fisica_uni.jpg">
-<div class="rec-info">
-<h3>Física UNI</h3>
-<p>Excelente nivel preuniversitario.</p>
-</div>
-</article>
-
-<article class="rec-card">
-<img src="portada_fisica_esencial.jpg">
-<div class="rec-info">
-<h3>Física esencial</h3>
-<p>Conceptos fundamentales.</p>
-</div>
-</article>
-`
-}
-
-};
-
-const elegido = localStorage.getItem("libro_actual") || "fisica";
-
-const libro = libros[elegido];
-
-document.getElementById("libro-img").src = libro.img;
-document.getElementById("libro-titulo").innerText = libro.titulo;
-document.getElementById("libro-desc").innerText = libro.desc;
-document.getElementById("recomendaciones").innerHTML = libro.rec;
 <script>
 
 // =====================================================
@@ -608,7 +669,19 @@ window.onload = function(){
 
     }
 
-};
+}
+function moverCarrusel(direccion){
+
+    const carrusel =
+    document.getElementById("books-grid");
+
+    carrusel.scrollBy({
+        left: direccion * 1150,
+        behavior:"smooth"
+    });
+
+}
+
 
 </script>
 

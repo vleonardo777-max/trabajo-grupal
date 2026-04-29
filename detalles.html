@@ -4,13 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Detalles del Libro - Lectum</title>
+
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="yape/2.png">
-</head>
 
+</head>
 <body>
 
+<!-- =============================================== -->
+<!-- HEADER -->
+<!-- =============================================== -->
+
 <header class="header">
+
     <div class="logo">
         <img src="yape/2.png" alt="Lectum">
     </div>
@@ -21,133 +27,137 @@
         <a href="#contact">Contacto</a>
     </nav>
 
-    <button class="btn-registrate" style="background:#0061f2;color:#fff;border:none;padding:10px 25px;border-radius:6px;font-weight:bold;">
+    <button class="btn-registrate"
+    style="background:#0061f2;color:#fff;border:none;padding:10px 25px;border-radius:6px;font-weight:bold;">
         Regístrate
     </button>
+
 </header>
+
+
+
+<!-- =============================================== -->
+<!-- CONTENIDO -->
+<!-- =============================================== -->
 
 <main class="detalles-container">
 
-    <!-- HERO LIBRO -->
-    <section class="book-hero">
-        <div class="book-display">
+<!-- HERO LIBRO -->
+<section class="book-hero">
 
-            <img src="" id="libro-img" class="main-cover">
+    <div class="book-display">
 
-            <div class="book-info-side">
-                <h1 class="detail-title" id="libro-titulo"></h1>
+        <img src="" id="libro-img" class="main-cover">
 
-                <p class="price">S./ 2.00</p>
+        <div class="book-info-side">
 
-                <p class="detail-text" id="libro-desc"></p>
+            <h1 class="detail-title" id="libro-titulo"></h1>
 
-                <div class="action-buttons" style="margin-top:35px;margin-bottom:25px;">
+            <p class="price">S./ 2.00</p>
 
-                    <!-- BOTON FORM -->
-                    <button class="btn-obtener"
-                    onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeV9oAflg_1Q7icmpWC9kuzWvUFqlBybqt8Wrgh1xLJBUP0yA/viewform', '_blank')">
-                        OBTENER
-                    </button>
+            <p class="detail-text" id="libro-desc"></p>
 
-                    <!-- BOTON BAJAR -->
-                    <button class="btn-outline"
-                    onclick="scrollToSection('como-obtener')">
-                        ¿Cómo Obtener?
-                    </button>
+            <div class="action-buttons"
+            style="margin-top:35px;margin-bottom:25px;">
 
-                    <!-- BOTON BAJAR -->
-                    <button class="btn-outline"
-                    onclick="scrollToSection('sugerencias')">
-                        Sugerencia
-                    </button>
+                <!-- BOTON FORM -->
+                <button class="btn-obtener"
+                onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeV9oAflg_1Q7icmpWC9kuzWvUFqlBybqt8Wrgh1xLJBUP0yA/viewform','_blank')">
+                    OBTENER
+                </button>
 
-                </div>
+                <!-- BOTON BAJAR -->
+                <button class="btn-outline"
+                onclick="scrollToSection('como-obtener')">
+                    ¿Cómo Obtener?
+                </button>
 
-            </div>
-        </div>
-    </section>
+                <!-- BOTON BAJAR -->
+                <button class="btn-outline"
+                onclick="scrollToSection('sugerencias')">
+                    Sugerencia
+                </button>
 
-    <div class="section-divider-gray"></div>
-
-    <!-- COMO OBTENER -->
-    <section class="how-to-buy" id="como-obtener">
-
-        <h2 class="blue-title">¿Cómo obtener tu libro?</h2>
-
-        <div class="tutorial-grid">
-
-            <div class="steps-text">
-
-                <p>
-                    <strong>Paso 1: Realiza tu pago</strong><br>
-                    Escanea nuestro código QR y realiza el pago de S/ 2.00.
-                    Guarda tu captura de pago.
-                </p>
-
-                <div class="qr-container">
-                    <img src="yape/qr_yape.png" alt="QR Yape" class="qr-img">
-                </div>
-
-                <p>
-                    <strong>Paso 2: Completa el formulario</strong><br>
-                    Presiona el botón OBTENER y llena tus datos correctamente.
-                </p>
-
-                <p>
-                    <strong>Paso 3: Recibe tu libro</strong><br>
-                    Luego de verificar el pago, recibirás el PDF en tu correo.
-                </p>
-
-            </div>
-
-            <div class="video-side">
-                <span class="video-label">Video Tutorial</span>
-
-                <div class="video-placeholder">
-                    <div class="play-button"></div>
-                </div>
             </div>
 
         </div>
 
-    </section>
+    </div>
 
-    <div class="section-divider-gray"></div>
+</section>
 
-    <!-- SUGERENCIAS -->
-    <section class="recommendations" id="sugerencias">
 
-        <h2 class="section-title-left">Recomendaciones</h2>
+<div class="section-divider-gray"></div>
 
-        <div class="rec-grid" id="recomendaciones"></div>
 
-            <article class="rec-card">
-                <img src="portada_fisica_uni.jpg" alt="Fisica UNI">
 
-                <div class="rec-info">
-                    <h3>Física - Compendio UNI</h3>
-                    <p>Autor: Iván B. Becerra Tello</p>
-                    <p>Excelente para estudiantes preuniversitarios.</p>
-                </div>
-            </article>
+<!-- COMO OBTENER -->
+<section class="how-to-buy" id="como-obtener">
 
-            <article class="rec-card">
-                <img src="portada_fisica_esencial.jpg" alt="Fisica Esencial">
+    <h2 class="blue-title">¿Cómo obtener tu libro?</h2>
 
-                <div class="rec-info">
-                    <h3>Física esencial</h3>
-                    <p>Autor: Charles Bronson Paucar</p>
-                    <p>Ideal para reforzar conceptos fundamentales.</p>
-                </div>
-            </article>
+    <div class="tutorial-grid">
+
+        <div class="steps-text">
+
+            <p>
+                <strong>Paso 1: Realiza tu pago</strong><br>
+                Escanea nuestro código QR y realiza el pago de S/ 2.00.
+                Guarda tu captura de pago.
+            </p>
+
+            <div class="qr-container">
+                <img src="imagenes/WhatsApp Image 2026-04-22 at 8.04.58 PM.jpg" alt="QR Yape" class="qr-img">
+            </div>
+
+            <p>
+                <strong>Paso 2: Completa el formulario</strong><br>
+                Presiona el botón OBTENER y llena tus datos correctamente.
+            </p>
+
+            <p>
+                <strong>Paso 3: Recibe tu libro</strong><br>
+                Luego de verificar el pago, recibirás el PDF en tu correo.
+            </p>
 
         </div>
 
-    </section>
+        <div class="video-side">
+
+            <span class="video-label">Video Tutorial</span>
+
+            <div class="video-placeholder">
+                <div class="play-button"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-divider-gray"></div>
+
+
+
+<!-- RECOMENDACIONES -->
+<section class="recommendations" id="sugerencias">
+
+    <h2 class="section-title-left">Recomendaciones</h2>
+
+    <div class="rec-grid" id="recomendaciones"></div>
+
+</section>
 
 </main>
 
+
+
+<!-- =============================================== -->
 <!-- CONTACTO -->
+<!-- =============================================== -->
+
 <section class="contact-section" id="contact">
 
     <div class="contact-card">
@@ -159,23 +169,53 @@
         <h4>HORARIO DE ATENCIÓN</h4>
 
         <div class="schedule-grid">
-            <div class="day-card"><strong>Lunes</strong><br>6:00 am-5:00 pm</div>
-            <div class="day-card"><strong>Martes</strong><br>9:00 am-8:00 pm</div>
-            <div class="day-card"><strong>Miércoles</strong><br>8:00 am-9:00 pm</div>
-            <div class="day-card"><strong>Jueves</strong><br>7:00 am-6:00 pm</div>
-            <div class="day-card"><strong>Viernes</strong><br>6:00 am-9:00 pm</div>
-            <div class="day-card"><strong>Sábado</strong><br>9:00 am-7:00 pm</div>
+
+            <div class="day-card">
+                <strong>Lunes</strong><br>
+                6:00 am - 5:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Martes</strong><br>
+                9:00 am - 8:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Miércoles</strong><br>
+                8:00 am - 9:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Jueves</strong><br>
+                7:00 am - 6:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Viernes</strong><br>
+                6:00 am - 9:00 pm
+            </div>
+
+            <div class="day-card">
+                <strong>Sábado</strong><br>
+                9:00 am - 7:00 pm
+            </div>
+
         </div>
 
     </div>
 
     <p class="footer-slogan">
-        "En Lectum creemos que el conocimiento no debería ser un lujo."
+        En Lectum creemos que el conocimiento no debería ser un lujo.
     </p>
 
 </section>
 
+
+
+<!-- =============================================== -->
 <!-- FOOTER -->
+<!-- =============================================== -->
+
 <footer class="footer-main">
 
     <div class="footer-grid">
@@ -215,14 +255,192 @@
 
 </footer>
 
-<!-- SCRIPT -->
+
+
+<!-- =============================================== -->
+<!-- JAVASCRIPT -->
+<!-- =============================================== -->
+
 <script>
+
 function scrollToSection(id){
     document.getElementById(id).scrollIntoView({
-        behavior:"smooth",
-        block:"start"
+        behavior:"smooth"
     });
 }
+
+const libros = {
+
+psico1:{
+titulo:"Psicología General",
+img:"psico1.jpg",
+desc:"Libro introductorio sobre conducta humana.",
+rec1:"psico2",
+rec2:"psico3"
+},
+
+psico2:{
+titulo:"Psicología Social",
+img:"psico2.jpg",
+desc:"Relaciones humanas e influencia grupal.",
+rec1:"psico1",
+rec2:"psico3"
+},
+
+psico3:{
+titulo:"Psicología Educativa",
+img:"psico3.jpg",
+desc:"Aprendizaje escolar y procesos cognitivos.",
+rec1:"psico1",
+rec2:"psico2"
+},
+
+mate1:{
+titulo:"Álgebra Básica",
+img:"mate1.jpg",
+desc:"Ecuaciones y funciones.",
+rec1:"mate2",
+rec2:"mate3"
+},
+
+mate2:{
+titulo:"Geometría",
+img:"mate2.jpg",
+desc:"Figuras, áreas y teoría espacial.",
+rec1:"mate1",
+rec2:"mate3"
+},
+
+mate3:{
+titulo:"Cálculo I",
+img:"mate3.jpg",
+desc:"Límites y derivadas.",
+rec1:"mate1",
+rec2:"mate2"
+},
+
+com1:{
+titulo:"Redacción Académica",
+img:"com1.jpg",
+desc:"Textos formales y redacción correcta.",
+rec1:"com2",
+rec2:"com3"
+},
+
+com2:{
+titulo:"Comprensión Lectora",
+img:"com2.jpg",
+desc:"Técnicas de análisis textual.",
+rec1:"com1",
+rec2:"com3"
+},
+
+com3:{
+titulo:"Ortografía Total",
+img:"com3.jpg",
+desc:"Normas esenciales del idioma.",
+rec1:"com1",
+rec2:"com2"
+},
+
+fis1:{
+titulo:"Física General",
+img:"fis1.jpg",
+desc:"Movimiento y fuerza.",
+rec1:"fis2",
+rec2:"fis3"
+},
+
+fis2:{
+titulo:"Electricidad",
+img:"fis2.jpg",
+desc:"Voltaje y corriente.",
+rec1:"fis1",
+rec2:"fis3"
+},
+
+fis3:{
+titulo:"Física UNI",
+img:"fis3.jpg",
+desc:"Preparación avanzada.",
+rec1:"fis1",
+rec2:"fis2"
+},
+
+qui1:{
+titulo:"Química General",
+img:"qui1.jpg",
+desc:"Átomos y enlaces.",
+rec1:"qui2",
+rec2:"qui3"
+},
+
+qui2:{
+titulo:"Química Orgánica",
+img:"qui2.jpg",
+desc:"Compuestos del carbono.",
+rec1:"qui1",
+rec2:"qui3"
+},
+
+qui3:{
+titulo:"Química UNI",
+img:"qui3.jpg",
+desc:"Nivel avanzado.",
+rec1:"qui1",
+rec2:"qui2"
+},
+
+soc1:{
+titulo:"Historia Universal",
+img:"soc1.jpg",
+desc:"Procesos históricos mundiales.",
+rec1:"soc2",
+rec2:"soc3"
+},
+
+soc2:{
+titulo:"Geografía",
+img:"soc2.jpg",
+desc:"Relieve, clima y regiones.",
+rec1:"soc1",
+rec2:"soc3"
+},
+
+soc3:{
+titulo:"Economía Básica",
+img:"soc3.jpg",
+desc:"Mercado y dinero.",
+rec1:"soc1",
+rec2:"soc2"
+}
+
+};
+
+const elegido =
+localStorage.getItem("libro_actual") || "psico1";
+
+const libro = libros[elegido] || libros["psico1"];
+
+document.getElementById("libro-img").src = libro.img;
+document.getElementById("libro-titulo").innerText = libro.titulo;
+document.getElementById("libro-desc").innerText = libro.desc;
+
+function crearRec(id){
+return `
+<article class="rec-card">
+<img src="${libros[id].img}">
+<div class="rec-info">
+<h3>${libros[id].titulo}</h3>
+<p>${libros[id].desc}</p>
+</div>
+</article>
+`;
+}
+
+document.getElementById("recomendaciones").innerHTML =
+crearRec(libro.rec1) + crearRec(libro.rec2);
+
 </script>
 
 </body>
