@@ -27,10 +27,8 @@
         <a href="#contact">Contacto</a>
     </nav>
 
-    <button class="btn-registrate"
-    style="background:#0061f2;color:#fff;border:none;padding:10px 25px;border-radius:6px;font-weight:bold;">
-        Regístrate
-    </button>
+    <div id="login-area"></div>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </header>
 
@@ -107,7 +105,7 @@
             </p>
 
             <div class="qr-container">
-                <img src="imagenes/WhatsApp Image 2026-04-22 at 8.04.58 PM.jpg" alt="QR Yape" class="qr-img">
+                <img src="yape/yape.png.PNG" alt="QR Yape" class="qr-img">
             </div>
 
             <p>
@@ -429,18 +427,95 @@ document.getElementById("libro-desc").innerText = libro.desc;
 function crearRec(id){
 return `
 <article class="rec-card">
-<img src="${libros[id].img}">
-<div class="rec-info">
-<h3>${libros[id].titulo}</h3>
-<p>${libros[id].desc}</p>
-</div>
+    <img src="${libros[id].img}">
+
+    <div class="rec-info">
+        <h3>${libros[id].titulo}</h3>
+        <p>${libros[id].desc}</p>
+
+        <button class="btn-details"
+        onclick="irADetalle('${id}')">
+            Ver detalles
+        </button>
+    </div>
 </article>
 `;
 }
-
 document.getElementById("recomendaciones").innerHTML =
 crearRec(libro.rec1) + crearRec(libro.rec2);
+function handleCredentialResponse(response){
 
+    localStorage.setItem(
+        "google_session",
+        response.credential
+    );
+
+    alert("Sesión iniciada correctamente");
+
+    location.reload();
+}
+
+function cerrarSesion(){
+
+    localStorage.removeItem("google_session");
+
+    alert("Sesión cerrada");
+
+    location.reload();
+}
+
+window.onload = function(){
+
+    const loginArea =
+    document.getElementById("login-area");
+
+    if(localStorage.getItem("google_session")){
+
+        loginArea.innerHTML = `
+            <div class="session-box">
+                <span style="font-size:12px">
+                    Sesión activa
+                </span>
+
+                <button
+                onclick="cerrarSesion()"
+                class="logout-btn">
+                    Salir
+                </button>
+            </div>
+        `;
+
+    }else{
+
+        google.accounts.id.initialize({
+            client_id:
+            "406323672638-hki7o8576utok1gd043l3jni5vhrcsdo.apps.googleusercontent.com",
+
+            callback: handleCredentialResponse,
+
+            ux_mode:"popup",
+            auto_select:false
+        });
+
+        google.accounts.id.renderButton(
+            loginArea,
+            {
+                theme:"outline",
+                size:"large",
+                shape:"pill"
+            }
+        );
+
+    }
+
+}
+function irADetalle(id){
+
+    localStorage.setItem("libro_actual", id);
+
+    window.location.href = "detalles.html";
+
+}
 </script>
 
 </body>

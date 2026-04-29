@@ -116,6 +116,25 @@ body{
     font-size:22px;
     max-width:900px;
 }
+.hero-btn{
+    display:inline-block;
+    margin-top:28px;
+    background:#0b8ff9;
+    color:#fff;
+    text-decoration:none;
+    padding:16px 34px;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+    transition:.25s ease;
+    box-shadow:0 10px 20px rgba(11,143,249,.18);
+}
+
+.hero-btn:hover{
+    transform:translateY(-3px);
+    background:#006fe0;
+    box-shadow:0 14px 28px rgba(11,143,249,.25);
+}
 
 /* ==================================================
    SEPARADORES
@@ -543,6 +562,10 @@ body{
 .rec-info p{
     font-size:15px;
     line-height:1.6;
+}
+
+.rec-info .btn-details{
+    margin-top:12px;
 }
 
 /* ==================================================
