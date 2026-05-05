@@ -393,7 +393,24 @@ body{
 
 .main-cover{
     width:100%;
+    max-width:320px;
+    height:auto;
+
+    border-radius:18px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+
+    object-fit:cover;
 }
+
+/* efecto hover (se ve más moderno) */
+.main-cover:hover{
+    transform:scale(1.03);
+    box-shadow:0 20px 45px rgba(0,0,0,0.3);
+}
+
 
 .detail-title{
     font-size:54px;
@@ -913,6 +930,12 @@ body{
 
     .book-cover img{
         height:180px;
+    }
+
+    .main-cover{
+        max-width:220px;
+        margin:auto;
+        display:block;
     }
 
 }

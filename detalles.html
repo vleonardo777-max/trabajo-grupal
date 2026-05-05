@@ -55,6 +55,10 @@
 
             <p class="detail-text" id="libro-desc"></p>
 
+            <button class="btn-outline" id="btn-desc" onclick="toggleDescripcion()">
+             Ver más
+            </button>
+
             <div class="action-buttons"
             style="margin-top:35px;margin-bottom:25px;">
 
@@ -271,7 +275,8 @@ const libros = {
 psico1:{
 titulo:"Intervenciones en psicologia clinica",
 img:"yape/Captura de pantalla 2026-05-05 170833.png",
-desc:"Este libro ofrece herramientas prácticas para la evaluación, diagnóstico e intervención en pacientes clínicos, integrando enfoques modernos de la psicología.",
+descCorta:"Herramientas clave para evaluación y diagnóstico clínico.",
+descLarga:"Este libro presenta un enfoque integral de la psicología clínica, abordando herramientas fundamentales para la evaluación, diagnóstico e intervención terapéutica. Incluye estrategias basadas en evidencia para el tratamiento de distintos trastornos psicológicos, así como casos prácticos que permiten comprender la aplicación real de los conceptos en contextos clínicos.",
 rec1:"psico2",
 rec2:"psico3"
 },
@@ -279,7 +284,8 @@ rec2:"psico3"
 psico2:{
 titulo:"La interpretación de los sueños",
 img:"yape/La-interpretaci-n-de-los-sue-os-Sigmund-Freud.jpeg",
-desc:"Obra clásica de Sigmund Freud que explora el significado de los sueños como manifestaciones del inconsciente y su relación con los deseos reprimidos.",
+descCorta:"Obra clave del psicoanálisis sobre el significado de los sueños.",
+descLarga:"Obra clásica de Sigmund Freud que sienta las bases del psicoanálisis. En este libro se explora el significado oculto de los sueños como manifestaciones del inconsciente, analizando símbolos, deseos reprimidos y conflictos internos. Es una lectura esencial para comprender la mente humana desde una perspectiva profunda y teórica.",
 rec1:"psico1",
 rec2:"psico3"
 },
@@ -287,7 +293,8 @@ rec2:"psico3"
 psico3:{
 titulo:"Neuropsicología Clínica",
 img:"yape/mini_magick20220704-26191-irot9a.png",
-desc:"Explica la relación entre el cerebro y la conducta, abordando trastornos neurológicos y técnicas de evaluación neuropsicológica.",
+descCorta:"Relación entre cerebro, conducta y procesos cognitivos.",
+descLarga:"Este texto aborda la relación entre el cerebro y la conducta humana, explicando cómo diferentes estructuras cerebrales influyen en procesos cognitivos y emocionales. Incluye métodos de evaluación neuropsicológica, diagnóstico de trastornos neurológicos y estrategias de rehabilitación, siendo ideal para estudiantes y profesionales del área de la salud.",
 rec1:"psico1",
 rec2:"psico2"
 },
@@ -295,7 +302,8 @@ rec2:"psico2"
 mate1:{
 titulo:"Aritmética",
 img:"yape/aritmetica---teoria-ejemplos-y-problemas-marlon-d-arcila-vanegas-yeison-e-gomez-norena.pdf (12).jpg",
-desc:"Libro completo de aritmética con teoría clara, ejemplos resueltos y problemas prácticos para fortalecer habilidades matemáticas básicas.",
+descCorta:"Teoría y ejercicios para dominar la aritmética básica.",
+descLarga:"Libro completo de aritmética que desarrolla desde conceptos básicos hasta operaciones más complejas. Incluye teoría clara, ejemplos resueltos paso a paso y una amplia variedad de ejercicios prácticos que permiten fortalecer habilidades matemáticas esenciales para estudios académicos y aplicaciones cotidianas.",
 rec1:"mate2",
 rec2:"mate3"
 },
@@ -303,7 +311,8 @@ rec2:"mate3"
 mate2:{
 titulo:"Ecuaciones diferenciales y sistemas dinámicos",
 img:"yape/ecuaciones-diferenciales-y-sistemas-dinamicos-jorge-augusto-perez-alcazar-4265.pdf (12).jpg",
-desc:"Introducción al análisis de sistemas dinámicos y resolución de ecuaciones diferenciales aplicadas a problemas reales.",
+descCorta:"Análisis de sistemas y ecuaciones aplicadas.",
+descLarga:"Este libro introduce el estudio de ecuaciones diferenciales y su aplicación en sistemas dinámicos. Explica métodos de resolución, modelación matemática y análisis de fenómenos reales en áreas como física, ingeniería y economía. Ideal para estudiantes que buscan comprender procesos de cambio y evolución en distintos sistemas.",
 rec1:"mate1",
 rec2:"mate3"
 },
@@ -311,7 +320,8 @@ rec2:"mate3"
 mate3:{
 titulo:"Geometría Analítica",
 img:"yape/geometria-analitica-para-ciencias-e-ingenieria-digitalnbsped-9789875751255.jpg",
-desc:"Desarrolla conceptos de geometría analítica aplicados a ciencias e ingeniería, incluyendo rectas, planos y coordenadas.",
+descCorta:"Relación entre álgebra y geometría.",
+descLarga:"Desarrolla los principios de la geometría analítica aplicados a ciencias e ingeniería. Incluye el estudio de rectas, planos, cónicas y sistemas de coordenadas, combinando teoría con ejercicios prácticos. Es una herramienta clave para comprender la relación entre álgebra y geometría en contextos académicos.",
 rec1:"mate1",
 rec2:"mate2"
 },
@@ -319,7 +329,8 @@ rec2:"mate2"
 com1:{
 titulo:"Alicia en el País de las Maravillas",
 img:"yape/02.-Alicia-en-el-Pa-s-de-las-Maravillas-autor-Lewis-Carrol.pdf.jpg",
-desc:"Clásico de la literatura que narra las aventuras de Alicia en un mundo fantástico lleno de personajes curiosos.",
+descCorta:"Aventuras en un mundo fantástico y surrealista.",
+descLarga:"Clásico de la literatura universal que narra las aventuras de Alicia en un mundo fantástico lleno de personajes peculiares y situaciones absurdas. La obra combina imaginación, lógica y crítica social, convirtiéndose en una lectura entretenida y reflexiva para lectores de todas las edades.",
 rec1:"com2",
 rec2:"com3"
 },
@@ -327,7 +338,8 @@ rec2:"com3"
 com2:{
 titulo:"El Arte de la Guerra",
 img:"yape/guerra.jpg",
-desc:"Texto milenario de Sun Tzu sobre estrategia militar, liderazgo y toma de decisiones aplicable a múltiples ámbitos.",
+descCorta:"Estrategia, liderazgo y toma de decisiones.",
+descLarga:"Texto milenario escrito por Sun Tzu que aborda principios estratégicos aplicables no solo a la guerra, sino también al liderazgo, los negocios y la toma de decisiones. Sus enseñanzas se basan en la planificación, el conocimiento del enemigo y la adaptación al entorno.",
 rec1:"com1",
 rec2:"com3"
 },
@@ -335,7 +347,8 @@ rec2:"com3"
 com3:{
 titulo:"El principito",
 img:"yape/principito.jpeg",
-desc:"Historia filosófica que reflexiona sobre la vida, la amistad y lo esencial que no se ve a simple vista.",
+descCorta:"Reflexión sobre la vida y lo esencial.",
+descLarga:"Obra filosófica que, a través de una historia aparentemente sencilla, reflexiona sobre la vida, la amistad, el amor y la naturaleza humana. El libro transmite enseñanzas profundas sobre lo esencial, aquello que no se puede ver con los ojos sino con el corazón.",
 rec1:"com1",
 rec2:"com2"
 },
@@ -343,7 +356,8 @@ rec2:"com2"
 fis1:{
 titulo:"Física: Cinemática",
 img:"yape/fisica-cinematica-viau-tintori-ferreira-gibbs-bartels-2471.pdf.jpg",
-desc:"Introducción al estudio del movimiento, velocidad y aceleración con ejemplos prácticos.",
+descCorta:"Conceptos básicos del movimiento.",
+descLarga:"Introducción al estudio del movimiento, abordando conceptos como velocidad, aceleración y trayectoria. Incluye ejemplos prácticos y ejercicios que facilitan la comprensión de los principios fundamentales de la cinemática en distintos contextos.",
 rec1:"fis2",
 rec2:"fis3"
 },
@@ -351,7 +365,8 @@ rec2:"fis3"
 fis2:{
 titulo:"Física - Volumen I",
 img:"yape/F-sica-Volumen-I-Juan-Guillermo-Rivera-Berr-o.pdf (12).jpg",
-desc:"Libro completo de física que abarca conceptos fundamentales como fuerzas, energía y movimiento.",
+descCorta:"Fundamentos de física clásica.",
+descLarga:"Libro completo de física que desarrolla conceptos fundamentales como fuerzas, energía, movimiento y leyes físicas. Está diseñado para estudiantes que buscan una base sólida en la materia, combinando teoría clara con aplicaciones prácticas.",
 rec1:"fis1",
 rec2:"fis3"
 },
@@ -359,7 +374,8 @@ rec2:"fis3"
 fis3:{
 titulo:"Física Elemental y Aplicada",
 img:"yape/F-sica-Elemental-y-Aplicada-Walter-Enrique-Mariscal-Santi-ngela-Esperanza-Pl-a-Santill-n-Frella-Soraya-Garcia-Larreta.pdf.jpg",
-desc:"Manual práctico que integra física, química y matemáticas para aplicaciones reales.",
+descCorta:"Aplicación práctica de ciencias básicas.",
+descLarga:"Manual práctico que integra física, química y matemáticas para resolver problemas reales. Presenta conceptos básicos junto con aplicaciones en la vida cotidiana, facilitando el aprendizaje interdisciplinario.",
 rec1:"fis1",
 rec2:"fis2"
 },
@@ -367,7 +383,8 @@ rec2:"fis2"
 qui1:{
 titulo:"Fundamentos de Química General",
 img:"yape/fundamentos-de-quimica-general-con-enfoque-universitario-sonia-chamorro-armas-adriana-barahona-ibarra-4313.pdf.jpg",
-desc:"Introduce conceptos básicos de química con enfoque universitario, incluyendo estructura atómica y enlaces.",
+descCorta:"Base de química universitaria.",
+descLarga:"Introduce los principios básicos de la química con un enfoque universitario. Incluye temas como estructura atómica, enlaces químicos, reacciones y propiedades de la materia, proporcionando una base sólida para estudios avanzados.",
 rec1:"qui2",
 rec2:"qui3"
 },
@@ -375,7 +392,8 @@ rec2:"qui3"
 qui2:{
 titulo:"Fundamentos Teóricos de Química Inorgánica",
 img:"yape/Fundamentos-Te-ricos-de-Qu-mica-Inorg-nica-Ruiz-S-nchez-Clara-Isabel-Herrera-Feijoo-Robinson-Jasmany-Correa-Salgado-Mar-a-de-Lourdes.pdf.jpg",
-desc:"Estudia compuestos inorgánicos y sus propiedades desde una base teórica sólida.",
+descCorta:"Estudio de compuestos inorgánicos.",
+descLarga:"Explora los principios de la química inorgánica, analizando la estructura, propiedades y comportamiento de compuestos no orgánicos. Incluye fundamentos teóricos y ejemplos aplicados.",
 rec1:"qui1",
 rec2:"qui3"
 },
@@ -383,7 +401,8 @@ rec2:"qui3"
 qui3:{
 titulo:"Fundamentos teóricos de química orgánica",
 img:"yape/Fundamentos-te-ricos-de-qu-mica-org-nica-Ruiz-S-nchez-Clara-Isabel-Herrera-Feijoo-Robinson-Jasmany-Correa-Salgado-Mar-a-de-Lourdes.pdf.jpg",
-desc:"Explora la química del carbono y sus compuestos, clave para áreas científicas y médicas.",
+descCorta:"Química del carbono y sus compuestos.",
+descLarga:"Estudia la química del carbono y sus compuestos, abordando estructuras, reacciones y mecanismos fundamentales. Es esencial para áreas como medicina, biología y química avanzada.",
 rec1:"qui1",
 rec2:"qui2"
 },
@@ -391,7 +410,8 @@ rec2:"qui2"
 soc1:{
 titulo:"Contratos Civiles",
 img:"yape/02.-Contratos-Civiles-autor-Aide-Guadalupe-Barrera-Rodr-guez-compressed.pdf.jpg",
-desc:"Guía de estudio sobre contratos civiles y fundamentos legales básicos.",
+descCorta:"Fundamentos legales de contratos.",
+descLarga:"Guía de estudio que explica los fundamentos legales de los contratos civiles, incluyendo tipos de contratos, obligaciones y derechos. Es útil para estudiantes de derecho y personas interesadas en temas legales básicos.",
 rec1:"soc2",
 rec2:"soc3"
 },
@@ -399,7 +419,8 @@ rec2:"soc3"
 soc2:{
 titulo:"Contabilidad Fundamental I",
 img:"yape/contabilidad-fundamental-i-unam-facultad-de-contaduria-y-administracion-4321.pdf.jpg",
-desc:"Introduce principios contables esenciales para la gestión financiera.",
+descCorta:"Principios básicos de contabilidad.",
+descLarga:"Introduce los principios contables esenciales, incluyendo registros financieros, estados contables y análisis básico. Ideal para quienes inician en el mundo de la contabilidad y la gestión financiera.",
 rec1:"soc1",
 rec2:"soc3"
 },
@@ -407,7 +428,8 @@ rec2:"soc3"
 soc3:{
 titulo:"Liderazgo",
 img:"yape/liderazgo.jpg",
-desc:"Desarrollo de habilidades de liderazgo, gestión de equipos y toma de decisiones.",
+descCorta:"Habilidades de liderazgo y gestión.",
+descLarga:"Libro enfocado en el desarrollo de habilidades de liderazgo, gestión de equipos y toma de decisiones. Presenta teorías modernas junto con ejemplos prácticos para aplicar en contextos organizacionales y personales.",
 rec1:"soc1",
 rec2:"soc2"
 }
@@ -421,8 +443,7 @@ const libro = libros[elegido] || libros["psico1"];
 
 document.getElementById("libro-img").src = libro.img;
 document.getElementById("libro-titulo").innerText = libro.titulo;
-document.getElementById("libro-desc").innerText = libro.desc;
-
+document.getElementById("libro-desc").innerText = libro.descCorta;
 function crearRec(id){
 return `
 <article class="rec-card">
@@ -549,6 +570,24 @@ function irAFormulario(){
         "https://docs.google.com/forms/d/e/1FAIpQLSeV9oAflg_1Q7icmpWC9kuzWvUFqlBybqt8Wrgh1xLJBUP0yA/viewform",
         "_blank"
     );
+}
+let expandido = false;
+
+function toggleDescripcion(){
+
+    const desc = document.getElementById("libro-desc");
+    const btn = document.getElementById("btn-desc");
+
+    if(!expandido){
+        desc.innerText = libro.descLarga;
+        btn.innerText = "Ver menos";
+        expandido = true;
+    }else{
+        desc.innerText = libro.descCorta;
+        btn.innerText = "Ver más";
+        expandido = false;
+    }
+
 }
 </script>
 
