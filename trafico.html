@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tráfico - Lectum</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section id="trafico" class="trafico-section">
+
+    <h2 class="section-title">Panel de Tráfico</h2>
+
+    <div class="trafico-container">
+
+        <!-- CARD TOTAL -->
+        <div class="trafico-card total-card">
+            <h4>Usuarios únicos</h4>
+            <p id="totalUsuarios" class="trafico-number"></p>
+        </div>
+
+        <!-- LISTA -->
+        <div class="trafico-card lista-card">
+            <h3>Usuarios que llegaron al formulario</h3>
+            <ul id="listaUsuarios" class="trafico-list"></ul>
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+function mostrarUsuarios(){
+
+    let usuarios = JSON.parse(localStorage.getItem("usuarios_form")) || [];
+
+    const total = document.getElementById("totalUsuarios");
+    const lista = document.getElementById("listaUsuarios");
+
+    total.innerText = "Total de usuarios únicos: " + usuarios.length;
+
+    lista.innerHTML = "";
+
+    usuarios.forEach(email => {
+        lista.innerHTML += "<li>" + email + "</li>";
+    });
+}
+
+window.onload = mostrarUsuarios;
+</script>
+
+</body>
+</html>

@@ -59,9 +59,8 @@
             style="margin-top:35px;margin-bottom:25px;">
 
                 <!-- BOTON FORM -->
-                <button class="btn-obtener"
-                onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeV9oAflg_1Q7icmpWC9kuzWvUFqlBybqt8Wrgh1xLJBUP0yA/viewform','_blank')">
-                    OBTENER
+                <button class="btn-obtener" onclick="irAFormulario()">
+                 OBTENER
                 </button>
 
                 <!-- BOTON BAJAR -->
@@ -445,12 +444,14 @@ document.getElementById("recomendaciones").innerHTML =
 crearRec(libro.rec1) + crearRec(libro.rec2);
 function handleCredentialResponse(response){
 
-    localStorage.setItem(
-        "google_session",
-        response.credential
-    );
+    const data = parseJwt(response.credential);
 
-    alert("Sesión iniciada correctamente");
+    localStorage.setItem("google_session", response.credential);
+
+    localStorage.setItem("user_email", data.email);
+    localStorage.setItem("user_name", data.name);
+
+    alert("Sesión iniciada como " + data.email);
 
     location.reload();
 }
@@ -515,6 +516,39 @@ function irADetalle(id){
 
     window.location.href = "detalles.html";
 
+}
+function parseJwt(token){
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
+        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+    ).join(''));
+
+    return JSON.parse(jsonPayload);
+}
+function irAFormulario(){
+
+    const email = localStorage.getItem("user_email");
+
+    if(!email){
+        alert("Debes iniciar sesión primero");
+        return;
+    }
+
+
+    let usuarios = JSON.parse(localStorage.getItem("usuarios_form")) || [];
+
+    // evitar duplicados
+    if(email && !usuarios.includes(email)){
+        usuarios.push(email);
+        localStorage.setItem("usuarios_form", JSON.stringify(usuarios));
+    }
+
+    // redirección
+    window.open(
+        "https://docs.google.com/forms/d/e/1FAIpQLSeV9oAflg_1Q7icmpWC9kuzWvUFqlBybqt8Wrgh1xLJBUP0yA/viewform",
+        "_blank"
+    );
 }
 </script>
 
