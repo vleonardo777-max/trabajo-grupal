@@ -486,50 +486,36 @@ function cerrarSesion(){
     location.reload();
 }
 
-window.onload = function(){
+if(localStorage.getItem("google_session")){
 
-    const loginArea =
-    document.getElementById("login-area");
+    // 🔥 reconstruir datos si faltan
+    if(!localStorage.getItem("user_email")){
+        try{
+            const token = localStorage.getItem("google_session");
+            const data = parseJwt(token);
 
-    if(localStorage.getItem("google_session")){
+            localStorage.setItem("user_email", data.email);
+            localStorage.setItem("user_name", data.name);
 
-        loginArea.innerHTML = `
-            <div class="session-box">
-                <span style="font-size:12px">
-                    Sesión activa
-                </span>
-
-                <button
-                onclick="cerrarSesion()"
-                class="logout-btn">
-                    Salir
-                </button>
-            </div>
-        `;
-
-    }else{
-
-        google.accounts.id.initialize({
-            client_id:
-            "406323672638-hki7o8576utok1gd043l3jni5vhrcsdo.apps.googleusercontent.com",
-
-            callback: handleCredentialResponse,
-
-            ux_mode:"popup",
-            auto_select:false
-        });
-
-        google.accounts.id.renderButton(
-            loginArea,
-            {
-                theme:"outline",
-                size:"large",
-                shape:"pill"
-            }
-        );
-
+            console.log("Sesión reconstruida:", data.email);
+        }catch(e){
+            console.log("Error reconstruyendo sesión");
+        }
     }
 
+    loginArea.innerHTML = `
+        <div class="session-box">
+            <span style="font-size:12px">
+                Sesión activa
+            </span>
+
+            <button
+            onclick="cerrarSesion()"
+            class="logout-btn">
+                Salir
+            </button>
+        </div>
+    `;
 }
 function irADetalle(id){
 
@@ -550,11 +536,18 @@ function parseJwt(token){
 function irAFormulario(){
 
     const email = localStorage.getItem("user_email");
+    const session = localStorage.getItem("google_session");
 
-    console.log("EMAIL:", email); // debug
+    console.log("EMAIL:", email);
+    console.log("SESSION:", session);
+
+    if(!session){
+        alert("Debes iniciar sesión primero");
+        return;
+    }
 
     if(!email){
-        alert("Debes iniciar sesión primero");
+        alert("Error con la sesión. Vuelve a iniciar sesión.");
         return;
     }
 
@@ -564,6 +557,8 @@ function irAFormulario(){
         usuarios.push(email);
         localStorage.setItem("usuarios_form", JSON.stringify(usuarios));
     }
+
+    alert("Redirigiendo al formulario...");
 
     window.open(
         "https://docs.google.com/forms/d/e/1FAIpQLSeV9oAflg_1Q7icmpWC9kuzWvUFqlBybqt8Wrgh1xLJBUP0yA/viewform",
