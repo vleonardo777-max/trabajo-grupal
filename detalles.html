@@ -451,7 +451,7 @@ return `
 
     <div class="rec-info">
         <h3>${libros[id].titulo}</h3>
-        <p>${libros[id].desc}</p>
+        <p>${libros[id].descCorta}</p>
 
         <button class="btn-details"
         onclick="irADetalle('${id}')">
@@ -549,23 +549,23 @@ function parseJwt(token){
 }
 function irAFormulario(){
 
-    const email = localStorage.getItem("user_email");
+    const email = console.log("Login OK:", data.email);
 
-    if(!email){
+    // 🔥 debug (puedes borrarlo luego)
+    console.log("EMAIL:", email);
+
+    if(!email || email === "undefined" || email === null){
         alert("Debes iniciar sesión primero");
         return;
     }
 
-
     let usuarios = JSON.parse(localStorage.getItem("usuarios_form")) || [];
 
-    // evitar duplicados
-    if(email && !usuarios.includes(email)){
+    if(!usuarios.includes(email)){
         usuarios.push(email);
         localStorage.setItem("usuarios_form", JSON.stringify(usuarios));
     }
 
-    // redirección
     window.open(
         "https://docs.google.com/forms/d/e/1FAIpQLSeV9oAflg_1Q7icmpWC9kuzWvUFqlBybqt8Wrgh1xLJBUP0yA/viewform",
         "_blank"
