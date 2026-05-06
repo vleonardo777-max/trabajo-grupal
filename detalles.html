@@ -535,21 +535,7 @@ function parseJwt(token){
 }
 function irAFormulario(){
 
-    const email = localStorage.getItem("user_email");
-    const session = localStorage.getItem("google_session");
-
-    console.log("EMAIL:", email);
-    console.log("SESSION:", session);
-
-    if(!session){
-        alert("Debes iniciar sesión primero");
-        return;
-    }
-
-    if(!email){
-        alert("Error con la sesión. Vuelve a iniciar sesión.");
-        return;
-    }
+    const email = localStorage.getItem("user_email") || "anonimo";
 
     let usuarios = JSON.parse(localStorage.getItem("usuarios_form")) || [];
 
@@ -558,7 +544,7 @@ function irAFormulario(){
         localStorage.setItem("usuarios_form", JSON.stringify(usuarios));
     }
 
-    alert("Redirigiendo al formulario...");
+    alert("Registrado correctamente: " + email);
 
     window.open(
         "https://docs.google.com/forms/d/e/1FAIpQLSeV9oAflg_1Q7icmpWC9kuzWvUFqlBybqt8Wrgh1xLJBUP0yA/viewform",
