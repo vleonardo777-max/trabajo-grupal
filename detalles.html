@@ -549,12 +549,11 @@ function parseJwt(token){
 }
 function irAFormulario(){
 
-    const email = console.log("Login OK:", data.email);
+    const email = localStorage.getItem("user_email");
 
-    // 🔥 debug (puedes borrarlo luego)
-    console.log("EMAIL:", email);
+    console.log("EMAIL:", email); // debug
 
-    if(!email || email === "undefined" || email === null){
+    if(!email){
         alert("Debes iniciar sesión primero");
         return;
     }
