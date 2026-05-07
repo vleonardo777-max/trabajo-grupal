@@ -26,8 +26,12 @@
         <img src="yape/2.png" alt="Lectum Logo">
     </div>
 
+    <!-- BOTON MODO OSCURO -->
+    <button class="dark-btn" onclick="toggleDarkMode()">
+        🌓
+    </button>
+
     <nav>
-        <a href="trafico.html">Tráfico</a>
         <a href="#">Inicio</a>
         <a href="#catalog">Categorías</a>
         <a href="#contact">Atención</a>
@@ -45,6 +49,7 @@
 <!-- ================================================= -->
 
 <section class="hero">
+
     <div class="hero-content">
 
         <h1 class="hero-title">
@@ -53,8 +58,10 @@
         </h1>
 
         <p class="hero-subtitle">
-            Textos académicos especializados. Explora nuestro catálogo
-            y potencia tu aprendizaje por el precio de un pasaje.
+            Textos académicos especializados.
+            Explora nuestro catálogo
+            y potencia tu aprendizaje
+            por el precio de un pasaje.
         </p>
 
         <a href="#catalog" class="hero-btn">
@@ -62,8 +69,8 @@
         </a>
 
     </div>
-</section>
 
+</section>
 
 
 <!-- ================================================= -->
@@ -74,22 +81,42 @@
 
     <div class="container">
 
-        <h2 class="section-title">Sobre Nosotros</h2>
+        <h2 class="section-title">
+            Sobre Nosotros
+        </h2>
 
         <p class="about-text">
-            En Lectum convertimos la dificultad en accesibilidad.
-            Somos un equipo apasionado por la formación académica,
-            creando un puente entre el conocimiento y quienes más lo necesitan.
+            En Lectum convertimos la dificultad
+            en accesibilidad.
+            Somos un equipo apasionado
+            por la formación académica,
+            creando un puente entre el conocimiento
+            y quienes más lo necesitan.
         </p>
 
         <div class="philosophy">
 
-            <h3 class="philosophy-title">Nuestra filosofía:</h3>
+            <h3 class="philosophy-title">
+                Nuestra filosofía:
+            </h3>
 
             <ul class="philosophy-list">
-                <li><strong>Accesible:</strong> Precio justo para bolsillos estudiantiles.</li>
-                <li><strong>Variedad:</strong> De ciencias básicas a literatura especializada.</li>
-                <li><strong>Calidad:</strong> Contenido curado para tu éxito profesional.</li>
+
+                <li>
+                    <strong>Accesible:</strong>
+                    Precio justo para estudiantes.
+                </li>
+
+                <li>
+                    <strong>Variedad:</strong>
+                    Ciencias, literatura y más.
+                </li>
+
+                <li>
+                    <strong>Calidad:</strong>
+                    Material seleccionado.
+                </li>
+
             </ul>
 
         </div>
@@ -106,29 +133,53 @@
 <section class="catalog" id="catalog">
 
     <!-- FILTROS -->
+
     <div class="categories-tags">
 
-        <span class="tag active" onclick="filtrarLibros('all',this)">Todos</span>
+        <span class="tag active"
+        onclick="filtrarLibros('all',this)">
+            Todos
+        </span>
 
-        <span class="tag" onclick="filtrarLibros('psicologia',this)">Psicología</span>
+        <span class="tag"
+        onclick="filtrarLibros('psicologia',this)">
+            Psicología
+        </span>
 
-        <span class="tag" onclick="filtrarLibros('matematica',this)">Matemática</span>
+        <span class="tag"
+        onclick="filtrarLibros('matematica',this)">
+            Matemática
+        </span>
 
-        <span class="tag" onclick="filtrarLibros('comunicacion',this)">Comunicación</span>
+        <span class="tag"
+        onclick="filtrarLibros('comunicacion',this)">
+            Comunicación
+        </span>
 
-        <span class="tag" onclick="filtrarLibros('fisica',this)">Física</span>
+        <span class="tag"
+        onclick="filtrarLibros('fisica',this)">
+            Física
+        </span>
 
-        <span class="tag" onclick="filtrarLibros('quimica',this)">Química</span>
+        <span class="tag"
+        onclick="filtrarLibros('quimica',this)">
+            Química
+        </span>
 
-        <span class="tag" onclick="filtrarLibros('sociales',this)">Ciencias Sociales</span>
+        <span class="tag"
+        onclick="filtrarLibros('sociales',this)">
+            Sociales
+        </span>
 
     </div>
 
 
     <!-- BUSCADOR -->
+
     <div class="search-bar-container">
 
         <div class="search-box">
+
             <span class="search-icon">🔍</span>
 
             <input
@@ -138,22 +189,29 @@
             onkeyup="buscarLibro()">
 
             <span class="clear-icon"
-            onclick="limpiarBusqueda()">×</span>
+            onclick="limpiarBusqueda()">
+                ×
+            </span>
+
         </div>
 
     </div>
 
 
-    <!-- CONTENEDOR CARRUSEL -->
+    <!-- CARRUSEL -->
+
     <div class="catalog-wrapper">
 
         <button class="slide-btn left"
-        onclick="moverCarrusel(-1)">❮</button>
+        onclick="moverCarrusel(-1)">
+            ❮
+        </button>
 
         <div class="books-grid" id="books-grid">
 
+            <!-- LIBRO -->
 
-            <!-- ========================== -->
+                 <!-- ========================== -->
             <!-- PSICOLOGIA -->
             <!-- ========================== -->
 
@@ -402,7 +460,11 @@
 <section class="contact-section" id="contact">
 
     <div class="contact-card">
-        <p>Contacto: contacto@lectum.pe | Cel.: 953405501</p>
+        <p>
+            Contacto: contacto@lectum.pe
+            |
+            Cel.: 953405501
+        </p>
     </div>
 
     <div class="schedule-container">
@@ -446,7 +508,9 @@
     </div>
 
     <p class="footer-slogan">
-        En Lectum creemos que el conocimiento no debería ser un lujo.
+        En Lectum creemos
+        que el conocimiento
+        no debería ser un lujo.
     </p>
 
 </section>
@@ -461,40 +525,72 @@
     <div class="footer-grid">
 
         <div class="footer-col">
+
             <h5>Lectum</h5>
-            <a href="#about">Sobre Nosotros</a>
-            <a href="#">Misión</a>
-            <a href="#contact">Contáctanos</a>
+
+            <a href="#about">
+                Sobre Nosotros
+            </a>
+
+            <a href="#">
+                Misión
+            </a>
+
+            <a href="#contact">
+                Contáctanos
+            </a>
+
         </div>
 
         <div class="footer-col">
+
             <h5>Ayuda y Soporte</h5>
-            <a href="#">¿Cómo comprar?</a>
-            <a href="#">Formulario de pedido</a>
-            <a href="#">Preguntas Frecuentes</a>
+
+            <a href="#">
+                ¿Cómo comprar?
+            </a>
+
+            <a href="#">
+                Formulario
+            </a>
+
+            <a href="#">
+                Preguntas frecuentes
+            </a>
+
         </div>
 
         <div class="footer-col">
+
             <h5>Explora</h5>
+
             <a href="#">Literatura</a>
-            <a href="#">Textos Académicos</a>
+            <a href="#">Académicos</a>
             <a href="#">Novelas</a>
+
         </div>
 
         <div class="footer-col">
+
             <h5>Legal</h5>
+
             <p>Términos y Condiciones.</p>
             <p>Política de Privacidad.</p>
+
         </div>
 
     </div>
 
     <div class="footer-bottom">
-        <p>© 2026 Lectum. Todos los derechos reservados.</p>
+
+        <p>
+            © 2026 Lectum.
+            Todos los derechos reservados.
+        </p>
+
     </div>
 
 </footer>
-
 
 
 <!-- ================================================= -->
@@ -504,48 +600,59 @@
 <script>
 
 // =====================================================
-// VER DETALLES SOLO SI HAY SESIÓN
+// VER DETALLES
 // =====================================================
 
 function verDetalles(libro){
 
-    const sesion = localStorage.getItem("google_session");
+    const sesion =
+    localStorage.getItem("google_session");
 
     if(!sesion){
 
-        alert("Debes iniciar sesión para ver detalles.");
+        alert("Debes iniciar sesión.");
 
         google.accounts.id.prompt();
 
         return;
     }
 
-    localStorage.setItem("libro_actual", libro);
+    localStorage.setItem(
+        "libro_actual",
+        libro
+    );
 
-    window.location.href = "detalles.html";
+    window.location.href =
+    "detalles.html";
+
 }
 
 
-
 // =====================================================
-// FILTROS
+// FILTRAR
 // =====================================================
 
 function filtrarLibros(categoria, elemento){
 
-    const tags = document.querySelectorAll(".tag");
+    const tags =
+    document.querySelectorAll(".tag");
 
-    tags.forEach(tag => tag.classList.remove("active"));
+    tags.forEach(tag =>
+        tag.classList.remove("active")
+    );
 
     elemento.classList.add("active");
 
-    const libros = document.querySelectorAll(".book-item");
+    const libros =
+    document.querySelectorAll(".book-item");
 
     libros.forEach(libro => {
 
         if(
             categoria === "all" ||
-            libro.classList.contains("cat-" + categoria)
+            libro.classList.contains(
+                "cat-" + categoria
+            )
         ){
             libro.style.display = "flex";
         }else{
@@ -557,28 +664,31 @@ function filtrarLibros(categoria, elemento){
 }
 
 
-
 // =====================================================
 // BUSCADOR
 // =====================================================
 
 function buscarLibro(){
 
-    const texto = document
-    .getElementById("search-input")
+    const texto =
+    document.getElementById("search-input")
     .value
     .toLowerCase();
 
-    const libros = document.querySelectorAll(".book-item");
+    const libros =
+    document.querySelectorAll(".book-item");
 
     libros.forEach(libro => {
 
-        const titulo = libro.querySelector("h3")
+        const titulo =
+        libro.querySelector("h3")
         .innerText
         .toLowerCase();
 
         libro.style.display =
-        titulo.includes(texto) ? "flex" : "none";
+        titulo.includes(texto)
+        ? "flex"
+        : "none";
 
     });
 
@@ -586,14 +696,16 @@ function buscarLibro(){
 
 function limpiarBusqueda(){
 
-    document.getElementById("search-input").value = "";
+    document.getElementById(
+        "search-input"
+    ).value = "";
 
-    const todos = document.querySelector(".tag");
+    const todos =
+    document.querySelector(".tag");
 
     filtrarLibros("all", todos);
 
 }
-
 
 
 // =====================================================
@@ -602,21 +714,38 @@ function limpiarBusqueda(){
 
 function handleCredentialResponse(response){
 
-    const data = parseJwt(response.credential);
+    const data =
+    parseJwt(response.credential);
 
-    localStorage.setItem("google_session", response.credential);
+    localStorage.setItem(
+        "google_session",
+        response.credential
+    );
 
-    localStorage.setItem("user_email", data.email);
-    localStorage.setItem("user_name", data.name);
+    localStorage.setItem(
+        "user_email",
+        data.email
+    );
 
-    alert("Sesión iniciada como " + data.email);
+    localStorage.setItem(
+        "user_name",
+        data.name
+    );
+
+    alert(
+        "Sesión iniciada como " +
+        data.email
+    );
 
     location.reload();
+
 }
 
 function cerrarSesion(){
 
-    localStorage.removeItem("google_session");
+    localStorage.removeItem(
+        "google_session"
+    );
 
     alert("Sesión cerrada");
 
@@ -625,6 +754,89 @@ function cerrarSesion(){
 }
 
 
+// =====================================================
+// CARRUSEL
+// =====================================================
+
+function moverCarrusel(direccion){
+
+    const carrusel =
+    document.getElementById(
+        "books-grid"
+    );
+
+    carrusel.scrollBy({
+        left: direccion * 1150,
+        behavior:"smooth"
+    });
+
+}
+
+
+// =====================================================
+// JWT
+// =====================================================
+
+function parseJwt(token){
+
+    const base64Url =
+    token.split('.')[1];
+
+    const base64 =
+    base64Url
+    .replace(/-/g, '+')
+    .replace(/_/g, '/');
+
+    const jsonPayload =
+    decodeURIComponent(
+        atob(base64)
+        .split('')
+        .map(c =>
+            '%' +
+            ('00' +
+            c.charCodeAt(0)
+            .toString(16))
+            .slice(-2)
+        ).join('')
+    );
+
+    return JSON.parse(jsonPayload);
+
+}
+
+
+// =====================================================
+// MODO OSCURO
+// =====================================================
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle(
+        "dark-mode"
+    );
+
+    if(
+        document.body.classList.contains(
+            "dark-mode"
+        )
+    ){
+
+        localStorage.setItem(
+            "theme",
+            "dark"
+        );
+
+    }else{
+
+        localStorage.setItem(
+            "theme",
+            "light"
+        );
+
+    }
+
+}
+
 
 // =====================================================
 // AL CARGAR
@@ -632,13 +844,35 @@ function cerrarSesion(){
 
 window.onload = function(){
 
-    const loginArea =
-    document.getElementById("login-area");
+    // TEMA
 
-    if(localStorage.getItem("google_session")){
+    if(
+        localStorage.getItem("theme")
+        === "dark"
+    ){
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+    }
+
+    // LOGIN
+
+    const loginArea =
+    document.getElementById(
+        "login-area"
+    );
+
+    if(
+        localStorage.getItem(
+            "google_session"
+        )
+    ){
 
         loginArea.innerHTML = `
             <div class="session-box">
+
                 <span style="font-size:12px">
                     Sesión activa
                 </span>
@@ -646,19 +880,28 @@ window.onload = function(){
                 <button
                 onclick="cerrarSesion()"
                 class="logout-btn">
+
                     Salir
+
                 </button>
+
             </div>
         `;
 
     }else{
 
         google.accounts.id.initialize({
+
             client_id:
             "406323672638-hki7o8576utok1gd043l3jni5vhrcsdo.apps.googleusercontent.com",
-            callback: handleCredentialResponse,
+
+            callback:
+            handleCredentialResponse,
+
             ux_mode:"popup",
+
             auto_select:false
+
         });
 
         google.accounts.id.renderButton(
@@ -669,45 +912,8 @@ window.onload = function(){
                 shape:"pill"
             }
         );
+
     }
-
-    // 👇 ESTO VA AL FINAL
-    mostrarUsuarios();
-}
-function moverCarrusel(direccion){
-
-    const carrusel =
-    document.getElementById("books-grid");
-
-    carrusel.scrollBy({
-        left: direccion * 1150,
-        behavior:"smooth"
-    });
-
-}
-function parseJwt(token){
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
-        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-    ).join(''));
-
-    return JSON.parse(jsonPayload);
-}
-function mostrarUsuarios(){
-
-    let usuarios = JSON.parse(localStorage.getItem("usuarios_form")) || [];
-
-    document.getElementById("totalUsuarios").innerText =
-    "Total de usuarios únicos: " + usuarios.length;
-
-    const lista = document.getElementById("listaUsuarios");
-
-    lista.innerHTML = "";
-
-    usuarios.forEach(email => {
-        lista.innerHTML += "<li>" + email + "</li>";
-    });
 
 }
 

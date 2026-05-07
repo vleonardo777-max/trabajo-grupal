@@ -9,16 +9,62 @@
     box-sizing:border-box;
 }
 
+/* ==================================================
+   VARIABLES MODO CLARO
+================================================== */
+:root{
+
+    --bg:#ffffff;
+    --bg-soft:#f5f7fb;
+
+    --text:#111111;
+    --text-soft:#444444;
+
+    --card:#ffffff;
+    --border:#dddddd;
+
+    --primary:#0b8ff9;
+    --primary-dark:#005de8;
+
+    --shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* ==================================================
+   VARIABLES MODO OSCURO
+================================================== */
+body.dark-mode{
+
+    --bg:#111827;
+    --bg-soft:#1f2937;
+
+    --text:#f3f4f6;
+    --text-soft:#d1d5db;
+
+    --card:#1e293b;
+    --border:#374151;
+
+    --primary:#4da3ff;
+    --primary-dark:#1d7fff;
+
+    --shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+/* ==================================================
+   BASE
+================================================== */
 html{
     scroll-behavior:smooth;
 }
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#ffffff;
-    color:#000000;
+    background:var(--bg);
+    color:var(--text);
     line-height:1.5;
     overflow-x:hidden;
+    transition:
+    background .3s ease,
+    color .3s ease;
 }
 
 /* ==================================================
@@ -45,16 +91,29 @@ body{
     align-items:center;
     justify-content:space-between;
     padding:0 50px;
-    background:#fff;
-    border-bottom:1px solid #e5e5e5;
+
+    background:var(--card);
+
+    border-bottom:1px solid var(--border);
+
     position:sticky;
     top:0;
     z-index:999;
+
+    transition:.3s;
 }
 
 .logo img{
     height:48px;
+    transition:.3s ease;
 }
+
+body.dark-mode .logo img{
+    filter:
+    drop-shadow(0 0 8px rgba(77,163,255,.45))
+    brightness(1.15);
+}
+
 
 .header nav{
     display:flex;
@@ -63,16 +122,21 @@ body{
 
 .header nav a{
     text-decoration:none;
-    color:#333;
-    background:#eef5fc;
+
+    color:var(--text);
+
+    background:var(--bg-soft);
+
     padding:10px 18px;
     border-radius:8px;
     font-size:15px;
-    transition:.2s;
+
+    transition:.25s;
 }
 
 .header nav a:hover{
-    background:#dcecff;
+    background:var(--primary);
+    color:#fff;
 }
 
 .auth-container{
@@ -88,12 +152,48 @@ body{
 }
 
 .logout-btn{
-    background:#0b8ff9;
+    background:var(--primary);
     color:#fff;
+
     border:none;
+
     padding:8px 14px;
+
     border-radius:6px;
+
     cursor:pointer;
+
+    transition:.25s;
+}
+
+.logout-btn:hover{
+    background:var(--primary-dark);
+}
+
+/* ==================================================
+   BOTON DARK MODE
+================================================== */
+.dark-btn{
+
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.25s;
+}
+
+.dark-btn:hover{
+    transform:scale(1.08);
 }
 
 /* ==================================================
@@ -106,33 +206,51 @@ body{
 .hero-title{
     font-size:92px;
     line-height:.92;
-    color:#0b8ff9;
+
+    color:var(--primary);
+
     font-weight:900;
+
     max-width:950px;
+
     margin-bottom:22px;
 }
 
 .hero-subtitle{
     font-size:22px;
     max-width:900px;
+
+    color:var(--text-soft);
 }
+
 .hero-btn{
     display:inline-block;
+
     margin-top:28px;
-    background:#0b8ff9;
+
+    background:var(--primary);
+
     color:#fff;
+
     text-decoration:none;
+
     padding:16px 34px;
+
     border-radius:10px;
+
     font-size:18px;
     font-weight:bold;
+
     transition:.25s ease;
+
     box-shadow:0 10px 20px rgba(11,143,249,.18);
 }
 
 .hero-btn:hover{
     transform:translateY(-3px);
-    background:#006fe0;
+
+    background:var(--primary-dark);
+
     box-shadow:0 14px 28px rgba(11,143,249,.25);
 }
 
@@ -144,7 +262,7 @@ body{
 .how-to-buy,
 .recommendations,
 .contact-section{
-    border-top:18px solid #0b8ff9;
+    border-top:18px solid var(--primary);
 }
 
 /* ==================================================
@@ -156,16 +274,24 @@ body{
 
 .section-title{
     text-align:center;
-    color:#1565c0;
+
+    color:var(--primary);
+
     font-size:46px;
+
     margin-bottom:28px;
 }
 
 .about-text{
     text-align:center;
+
     font-size:21px;
+
     max-width:1100px;
+
     margin:auto;
+
+    color:var(--text-soft);
 }
 
 .philosophy{
@@ -206,12 +332,18 @@ body{
 }
 
 .tag{
-    background:#69b9ff;
+    background:var(--primary);
+
     color:#fff;
+
     padding:12px 24px;
+
     border-radius:30px;
+
     cursor:pointer;
+
     font-size:15px;
+
     transition:.2s;
 }
 
@@ -220,7 +352,7 @@ body{
 }
 
 .tag.active{
-    background:#005de8;
+    background:var(--primary-dark);
 }
 
 .search-bar-container{
@@ -231,21 +363,32 @@ body{
 
 .search-box{
     width:520px;
-    border:2px solid #333;
+
+    border:2px solid var(--border);
+
     border-radius:10px;
+
     height:50px;
+
     display:flex;
     align-items:center;
+
     padding:0 15px;
-    background:#fff;
+
+    background:var(--card);
 }
 
 .search-box input{
     width:100%;
+
     border:none;
     outline:none;
+
     font-size:16px;
+
     background:transparent;
+
+    color:var(--text);
 }
 
 .clear-icon{
@@ -265,10 +408,15 @@ body{
 
 .books-grid{
     display:flex;
+
     gap:34px;
+
     overflow-x:auto;
+
     scroll-behavior:smooth;
+
     padding:20px 35px 30px;
+
     scrollbar-width:none;
 }
 
@@ -277,21 +425,28 @@ body{
 }
 
 .book-item{
+
     min-width:340px;
     max-width:340px;
-    min-height:250px;
-    height:auto;
 
+    min-height:460px;
 
     flex-shrink:0;
+
     display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
     gap:16px;
 
-    background:#ffffff;
+    background:var(--card);
+
     padding:18px;
+
     border-radius:18px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    box-shadow:var(--shadow);
+
     transition:.25s;
 }
 
@@ -304,47 +459,71 @@ body{
 }
 
 .book-cover img{
-    width:150px;
-    height:220px;
+    width:100%;
+    height:240px;
+
     object-fit:cover;
+
     border-radius:12px;
 }
 
 .book-details{
     flex:1;
+
     display:flex;
     flex-direction:column;
     justify-content:space-between;
+
     min-width:0;
 }
 
 .book-details h3{
-    color:#1876d8;
+
+    color:var(--primary);
+
     font-size:20px;
+
     line-height:1.25;
+
     margin-bottom:10px;
 
     display:-webkit-box;
+
     -webkit-line-clamp:2;
+
     -webkit-box-orient:vertical;
+
     overflow:hidden;
 }
 
 .book-details p{
     font-size:15px;
+
     line-height:1.45;
+
     margin-bottom:8px;
+
     word-break:break-word;
+
+    color:var(--text-soft);
 }
 
 .btn-details{
-    margin-top:10px;
-    background:#005de8;
+
+    margin-top:auto;
+
+    background:var(--primary-dark);
+
     color:#fff;
+
     border:none;
+
     padding:11px 18px;
+
     border-radius:8px;
+
     cursor:pointer;
+
     transition:.25s;
 }
 
@@ -354,18 +533,25 @@ body{
 
 .slide-btn{
     position:absolute;
+
     top:50%;
+
     transform:translateY(-50%);
+
     z-index:5;
 
     width:50px;
     height:50px;
+
     border:none;
     border-radius:50%;
 
-    background:#0b8ff9;
+    background:var(--primary);
+
     color:#fff;
+
     font-size:28px;
+
     cursor:pointer;
 
     box-shadow:0 6px 18px rgba(0,0,0,.18);
@@ -396,27 +582,31 @@ body{
 .main-cover{
     width:100%;
     max-width:320px;
+
     height:auto;
 
     border-radius:18px;
 
     box-shadow:0 15px 35px rgba(0,0,0,0.25);
 
-    transition:transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
     object-fit:cover;
 }
 
-/* efecto hover (se ve más moderno) */
 .main-cover:hover{
     transform:scale(1.03);
+
     box-shadow:0 20px 45px rgba(0,0,0,0.3);
 }
 
-
 .detail-title{
     font-size:54px;
-    color:#0b8ff9;
+
+    color:var(--primary);
+
     margin-bottom:12px;
 }
 
@@ -429,6 +619,8 @@ body{
 .detail-text{
     font-size:18px;
     line-height:1.8;
+
+    color:var(--text-soft);
 }
 
 .action-buttons{
@@ -439,21 +631,46 @@ body{
 }
 
 .btn-obtener{
-    background:#005de8;
+    background:var(--primary-dark);
+
     color:#fff;
+
     border:none;
+
     padding:15px 28px;
+
     border-radius:8px;
+
     cursor:pointer;
+
     font-weight:bold;
+
+    transition:.25s;
+}
+
+.btn-obtener:hover{
+    transform:translateY(-2px);
 }
 
 .btn-outline{
-    background:#fff;
-    border:1px solid #999;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border:1px solid var(--border);
+
     padding:15px 22px;
+
     border-radius:8px;
+
     cursor:pointer;
+
+    transition:.25s;
+}
+
+.btn-outline:hover{
+    background:var(--bg-soft);
 }
 
 /* ==================================================
@@ -464,8 +681,10 @@ body{
 }
 
 .blue-title{
-    color:#0b8ff9;
+    color:var(--primary);
+
     font-size:42px;
+
     margin-bottom:35px;
 }
 
@@ -485,32 +704,46 @@ body{
     font-size:18px;
     margin-bottom:18px;
     max-width:560px;
+
+    color:var(--text-soft);
 }
 
 .qr-container{
     width:280px;
+
     margin:30px auto;
+
     padding:18px;
+
     background:linear-gradient(135deg,#a42cd6,#7b1fa2);
+
     border-radius:22px;
+
     box-shadow:0 12px 28px rgba(0,0,0,.18);
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     transition:0.3s ease;
 }
 
 .qr-container:hover{
     transform:translateY(-4px);
+
     box-shadow:0 18px 34px rgba(0,0,0,.22);
 }
 
 .qr-img{
     width:100%;
     max-width:230px;
+
     background:#ffffff;
+
     padding:12px;
+
     border-radius:18px;
+
     display:block;
 }
 
@@ -520,16 +753,25 @@ body{
 
 .video-label{
     display:inline-block;
-    background:#87c6ff;
+
+    background:var(--primary);
+
+    color:#fff;
+
     padding:8px 20px;
+
     font-weight:bold;
+
     margin-bottom:15px;
 }
 
 .video-placeholder{
     height:360px;
-    border:8px solid #1976d2;
-    background:#ddd;
+
+    border:8px solid var(--primary);
+
+    background:var(--bg-soft);
+
     display:flex;
     justify-content:center;
     align-items:center;
@@ -538,6 +780,7 @@ body{
 .play-button{
     width:0;
     height:0;
+
     border-top:35px solid transparent;
     border-bottom:35px solid transparent;
     border-left:55px solid #fff;
@@ -564,23 +807,38 @@ body{
 .rec-card{
     display:flex;
     gap:20px;
+
+    background:var(--card);
+
+    padding:18px;
+
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
 }
 
 .rec-card img{
     width:210px;
     height:290px;
+
     object-fit:cover;
+
+    border-radius:12px;
 }
 
 .rec-info h3{
     font-size:28px;
-    color:#1876d8;
+
+    color:var(--primary);
+
     margin-bottom:10px;
 }
 
 .rec-info p{
     font-size:15px;
     line-height:1.6;
+
+    color:var(--text-soft);
 }
 
 .rec-info .btn-details{
@@ -591,19 +849,26 @@ body{
    CONTACTO
 ================================================== */
 .contact-section{
-    background:#72b7f2;
+    background:var(--bg-soft);
     padding:65px 70px;
     text-align:center;
 }
 
 .contact-card{
     display:inline-block;
-    background:#53a8ee;
+
+    background:var(--primary);
+
     color:#fff;
+
     padding:15px 30px;
+
     border-radius:8px;
+
     margin-bottom:28px;
+
     font-weight:bold;
+
     font-size:18px;
 }
 
@@ -619,10 +884,15 @@ body{
 }
 
 .day-card{
-    background:#a9d4fb;
+    background:var(--card);
+
     padding:18px 10px;
+
     border-radius:8px;
+
     font-size:14px;
+
+    box-shadow:var(--shadow);
 }
 
 .footer-slogan{
@@ -635,13 +905,15 @@ body{
 ================================================== */
 .footer-main{
     padding:65px 70px 35px;
-    background:#fff;
+
+    background:var(--card);
 }
 
 .footer-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:45px;
+
     margin-bottom:35px;
 }
 
@@ -653,24 +925,37 @@ body{
 .footer-col a,
 .footer-col p{
     display:block;
+
     text-decoration:none;
-    color:#333;
+
+    color:var(--text-soft);
+
     margin-bottom:9px;
+
     font-size:15px;
+
     line-height:1.6;
 }
 
+.footer-col a:hover{
+    color:var(--primary);
+}
+
 .footer-bottom{
-    border-top:1px solid #ddd;
+    border-top:1px solid var(--border);
+
     padding-top:22px;
+
     display:flex;
     justify-content:space-between;
+
     gap:20px;
+
     font-size:14px;
 }
 
 /* ==================================================
-   RESPONSIVE
+   RESPONSIVE TABLET
 ================================================== */
 @media(max-width:1100px){
 
@@ -694,8 +979,16 @@ body{
 
 }
 
+/* ==================================================
+   RESPONSIVE MOBILE
+================================================== */
 @media(max-width:768px){
 
+body{
+    font-size:14px;
+}
+
+/* HEADER */
 .header{
     flex-direction:column;
     height:auto;
@@ -708,6 +1001,12 @@ body{
     justify-content:center;
 }
 
+.header nav a{
+    padding:8px 12px;
+    font-size:13px;
+}
+
+/* SECCIONES */
 .hero,
 .about,
 .catalog,
@@ -720,39 +1019,104 @@ body{
     padding-right:22px;
 }
 
+/* HERO */
 .hero-title{
-    font-size:46px;
+    font-size:38px;
+    line-height:1.1;
 }
 
+.hero-subtitle{
+    font-size:16px;
+}
+
+.hero-btn{
+    width:100%;
+    text-align:center;
+    padding:14px;
+}
+
+/* LIBROS */
 .book-item{
-    min-width:300px;
-    max-width:300px;
-    min-height:auto;
-    flex-direction:column;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+    min-width:260px;
+    max-width:260px;
+    min-height:470px;
 }
 
 .book-cover img{
-    width:100%;
-    height:220px;
+    height:180px;
 }
 
 .book-details h3{
-    font-size:20px;
+    font-size:18px;
 }
 
 .book-details p{
-    font-size:15px;
+    font-size:14px;
 }
 
+/* BOTONES SLIDER */
 .slide-btn{
     width:42px;
     height:42px;
     font-size:24px;
 }
 
+/* DETALLES */
+.book-display{
+    gap:25px;
+}
+
+.detail-title{
+    font-size:32px;
+}
+
+.price{
+    font-size:26px;
+}
+
+.detail-text{
+    font-size:15px;
+}
+
+.main-cover{
+    max-width:220px;
+    margin:auto;
+    display:block;
+}
+
+/* BOTONES */
+.action-buttons{
+    flex-direction:column;
+}
+
+.btn-obtener,
+.btn-outline{
+    width:100%;
+    text-align:center;
+}
+
+/* RECOMENDACIONES */
+.rec-card{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.rec-card img{
+    width:160px;
+    height:220px;
+}
+
+/* COMO OBTENER */
+.tutorial-grid{
+    gap:30px;
+}
+
+.video-placeholder{
+    height:200px;
+}
+
+/* FOOTER */
 .footer-grid{
     grid-template-columns:1fr;
 }
@@ -765,182 +1129,5 @@ body{
     flex-direction:column;
     text-align:center;
 }
-
-}
-/* ==================================================
-   TRAFICO
-================================================== */
-
-.trafico-section{
-    padding:80px 70px;
-    border-top:18px solid #0b8ff9;
-}
-
-.trafico-container{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:1fr;
-    gap:30px;
-}
-
-/* CARD GENERAL */
-.trafico-card{
-    background:#ffffff;
-    padding:30px;
-    border-radius:16px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-
-/* CARD TOTAL */
-.total-card{
-    text-align:center;
-    background:#eef5fc;
-}
-
-.trafico-number{
-    font-size:48px;
-    color:#0b8ff9;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-/* LISTA */
-.lista-card h3{
-    margin-bottom:15px;
-    font-size:24px;
-}
-
-.trafico-list{
-    list-style:none;
-}
-
-.trafico-list li{
-    background:#f5f5f5;
-    padding:12px 16px;
-    border-radius:8px;
-    margin-bottom:10px;
-    font-size:15px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-    .trafico-section{
-        padding:60px 20px;
-    }
-
-    .trafico-number{
-        font-size:36px;
-    }
-}
-/* ==================================================
-   MEJORAS MOBILE (IMPORTANTES)
-================================================== */
-
-@media(max-width:768px){
-
-    /* GENERAL */
-    body{
-        font-size:14px;
-    }
-
-    /* HERO */
-    .hero-title{
-        font-size:38px;
-        line-height:1.1;
-    }
-
-    .hero-subtitle{
-        font-size:16px;
-    }
-
-    .hero-btn{
-        width:100%;
-        text-align:center;
-        padding:14px;
-    }
-
-    /* HEADER */
-    .header{
-        padding:15px;
-    }
-
-    .header nav a{
-        padding:8px 12px;
-        font-size:13px;
-    }
-
-    /* DETALLES LIBRO */
-    .book-display{
-        gap:25px;
-    }
-
-    .detail-title{
-        font-size:32px;
-    }
-
-    .price{
-        font-size:26px;
-    }
-
-    .detail-text{
-        font-size:15px;
-    }
-
-    /* BOTONES */
-    .action-buttons{
-        flex-direction:column;
-    }
-
-    .btn-obtener,
-    .btn-outline{
-        width:100%;
-        text-align:center;
-    }
-
-    /* RECOMENDACIONES */
-    .rec-card{
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-    }
-
-    .rec-card img{
-        width:160px;
-        height:220px;
-    }
-
-    /* COMO OBTENER */
-    .tutorial-grid{
-        gap:30px;
-    }
-
-    .video-placeholder{
-        height:200px;
-    }
-
-    /* TRAFICO */
-    .trafico-card{
-        padding:20px;
-    }
-
-    .trafico-number{
-        font-size:32px;
-    }
-
-    /* CATALOGO */
-    .book-item{
-        min-width:260px;
-        max-width:260px;
-    }
-
-    .book-cover img{
-        height:180px;
-    }
-
-    .main-cover{
-        max-width:220px;
-        margin:auto;
-        display:block;
-    }
 
 }
